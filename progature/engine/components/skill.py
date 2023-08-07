@@ -1,5 +1,4 @@
 class Skill:
 
-    def __init__(self, name, chapters):
+    def __init__(self, name):
         self.name = name
-        self.chapters = chapters

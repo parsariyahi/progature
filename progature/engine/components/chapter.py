@@ -1,5 +1,4 @@
 class Chapter:
 
-    def __init__(self, name, levels):
+    def __init__(self, name):
         self.name = name
-        self.levels = levels

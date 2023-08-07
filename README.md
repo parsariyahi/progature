@@ -1,2 +1,2 @@
-# progadture
+# progature
 Programming Adventure Game

@@ -1,5 +1,7 @@
 from progature.engine.components.quest import Quest
 from progature.engine.components.level import Level
+from progature.engine.components.chapter import Chapter
+from progature.engine.components.skill import Skill
 
 class QuestUtil:
 
@@ -35,3 +37,38 @@ class LevelUtil:
             )
 
         return levels
+
+
+class ChapterUtil:
+
+    @staticmethod
+    def create_chapter():
+        levels = LevelUtil.create_level_bulk(5)
+        return Chapter("random chapter", levels=levels)
+
+    @staticmethod
+    def create_chapter_bulk(count: int = 10):
+        chapters = []
+        for counter in range(0, count):
+            levels = LevelUtil.create_level_bulk(5)
+            chapters.append(
+                Chapter(f"chapter{str(counter)}", levels=levels)
+            )
+
+        return chapters
+
+
+class SkillUtil:
+
+    @staticmethod
+    def create_skill():
+        chapters = ChapterUtil.create_chapter_bulk(5)
+        return Skill("random chapter", chapters=chapters)
+
+    def create_skill_bulk(count: int = 10):
+        skills = []
+        for counter in range(0, count):
+            chapters = ChapterUtil.create_chapter_bulk(5)
+            skills.append(
+                Skill(f"skill{str(counter)}", chapters=chapters)
+            ) 

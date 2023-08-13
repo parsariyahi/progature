@@ -1,0 +1,55 @@
+{
+    "name": "Python biginner game",
+    "skill": "basic python",
+    "chapters": [
+        {
+            "order": 1,
+            "name": "variables",
+            "levels":[
+                {
+                    "name": "integers",
+                    "quests": [
+                        "create int object",
+                        "add two integers",
+                        "compare two integers"
+                    ]
+                }
+            ]
+        },
+        {
+            "order": 2,
+            "name": "loops",
+            "levels":[
+                {
+                    "name": "while loop",
+                    "quests": [
+                        "create a while loop",
+                        "loop through a list with while loop",
+                        "create infinite loops with while loop"
+                    ]
+                },
+                {
+                    "name": "for loop",
+                    "quests": [
+                        "create a for loop",
+                        "loop through a list with for loop",
+                        "create infinite loops with for loop"
+                    ]
+                }
+            ]
+        },
+        {
+            "order": 3,
+            "name": "conditions",
+            "levels":[
+                {
+                    "name": "if conditions",
+                    "quests": [
+                        "create a if condition",
+                        "create a simple guess game with conditions, loops, variables"
+                    ]
+                }
+            ]
+        }
+    ]
+}

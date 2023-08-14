@@ -8,3 +8,9 @@ def test_create_chapter():
 
     assert chapter.name == "chapter1"
     assert chapter.levels == levels
+
+def test_create_chapter_with_none_levels():
+    chapter = Chapter("chapter1")
+
+    assert chapter.name == "chapter1"
+    assert chapter.levels is None

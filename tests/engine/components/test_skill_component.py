@@ -8,3 +8,9 @@ def test_create_skill():
 
     assert skill.name == "skill1"
     assert skill.chapters == chapters
+
+def test_create_skill_with_none_chapters():
+    skill = Skill("skill1")
+
+    assert skill.name == "skill1"
+    assert skill.chapters is None

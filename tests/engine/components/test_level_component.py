@@ -9,3 +9,10 @@ def test_create_level():
 
     assert level.name == "level1"
     assert level.quests == quests
+
+
+def test_create_level_with_none_quests():
+    level = Level("level1")
+
+    assert level.name == "level1"
+    assert level.quests is None

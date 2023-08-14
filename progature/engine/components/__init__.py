@@ -1,3 +1,4 @@
+from .game import Game
 from .skill import Skill
 from .chapter import Chapter
 from .level import Level

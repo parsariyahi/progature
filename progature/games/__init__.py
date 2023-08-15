@@ -29,12 +29,12 @@ class GameLoader:
                         quests.append(Quest(quest))
 
                     lv.quests = quests
-                    quests.clear()
+                    quests = []
 
                     levels.append(lv)
 
                 ch.levels = levels
-                levels.clear()
+                levels = []
 
                 chapters.append(ch)
 

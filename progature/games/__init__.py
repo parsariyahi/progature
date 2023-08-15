@@ -18,13 +18,25 @@ class GameLoader:
             quests = []
 
             for chapter in chapters_json:
+                ch = Chapter(chapter["name"])
                 levels_json = chapter["levels"]
+
                 for level in levels_json:
+                    lv = Level(level["name"])
                     quests_json = level["quests"]
+
                     for quest in quests_json:
                         quests.append(Quest(quest))
-                    levels.append(Level(level["name"], quests))
-                chapters.append(Chapter(chapter["name"], levels))
+
+                    lv.quests = quests
+                    quests.clear()
+
+                    levels.append(lv)
+
+                ch.levels = levels
+                levels.clear()
+
+                chapters.append(ch)
 
             skill = Skill(game_json["skill"], chapters)
 

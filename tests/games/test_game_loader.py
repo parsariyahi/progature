@@ -15,8 +15,10 @@ def test_game_loader():
     print(game.skill.chapters)
 
     for chapter in game.skill.chapters:
-        print(chapter.name)
+        print("chapter: ", chapter.name)
         for level in chapter.levels:
-            print(level.name)
+            print("levels :", level.name)
+            for quest in level.quests:
+                print("quest: ", quest.name)
 
-        print("__________")
+        print("---------------")

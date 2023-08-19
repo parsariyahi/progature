@@ -11,14 +11,14 @@ def test_game_loader():
 
     # assert game["skill"] == "basic python"
     # assert len(game["chapters"]) == 3
-    print(game)
-    print(game.skill.chapters)
+    print(game, game.is_complete)
+    # print(game.skill.chapters)
 
     for chapter in game.skill.chapters:
-        print("chapter: ", chapter.name)
+        print("chapter: ", chapter.name, chapter.is_complete)
         for level in chapter.levels:
-            print("levels :", level.name)
+            print("levels :", level.name, level.is_complete)
             for quest in level.quests:
-                print("quest: ", quest.name)
+                print("quest: ", quest.name, quest.is_complete)
 
         print("---------------")

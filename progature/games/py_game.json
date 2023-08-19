@@ -1,17 +1,29 @@
 {
     "name": "Python biginner game",
     "skill": "basic python",
+    "is_complete": false,
     "chapters": [
         {
             "order": 1,
             "name": "variables",
+            "is_complete": false,
             "levels":[
                 {
                     "name": "integers",
+                    "is_complete": false,
                     "quests": [
-                        "create int object",
-                        "add two integers",
-                        "compare two integers"
+                        {
+                            "name": "create int object",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "add two integers",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "compare two integers",
+                            "is_complete": false
+                        }
                     ]
                 }
             ]
@@ -19,21 +31,42 @@
         {
             "order": 2,
             "name": "loops",
+            "is_complete": false,
             "levels":[
                 {
                     "name": "while loop",
+                    "is_complete": false,
                     "quests": [
-                        "create a while loop",
-                        "loop through a list with while loop",
-                        "create infinite loops with while loop"
+                        {
+                            "name": "create a while loop",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "loop through a list with while loop",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "create infinite loops with while loop",
+                            "is_complete": false
+                        }
                     ]
                 },
                 {
                     "name": "for loop",
+                    "is_complete": false,
                     "quests": [
-                        "create a for loop",
-                        "loop through a list with for loop",
-                        "create infinite loops with for loop"
+                        {
+                            "name": "create a for loop",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "loop through a list with for loop",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "create infinite loops with for loop",
+                            "is_complete": false
+                        }
                     ]
                 }
             ]
@@ -41,12 +74,20 @@
         {
             "order": 3,
             "name": "conditions",
+            "is_complete": false,
             "levels":[
                 {
                     "name": "if conditions",
+                    "is_complete": false,
                     "quests": [
-                        "create a if condition",
-                        "create a simple guess game with conditions, loops, variables"
+                        {
+                            "name": "create a if condition",
+                            "is_complete": false
+                        },
+                        {
+                            "name": "create a simple guess game with conditions, loops, variables",
+                            "is_complete": false
+                        }
                     ]
                 }
             ]

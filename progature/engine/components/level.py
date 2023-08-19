@@ -5,9 +5,10 @@ from progature.engine.components.quest import Quest
 
 class Level:
     
-    def __init__(self, name: str, quests: Optional[List[Quest] | None] = None) -> None:
+    def __init__(self, name: str, quests: Optional[List[Quest] | None] = None, is_complete=False) -> None:
         self.name = name
         self.quests = quests
+        self.is_complete = is_complete
 
     @property
     def quests(self) -> Union[List[Quest], None]:

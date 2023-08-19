@@ -5,9 +5,10 @@ from progature.engine.components.skill import Skill
 
 class Game:
 
-    def __init__(self, name, skill: Optional[Skill | None] = None) -> None:
+    def __init__(self, name, skill: Optional[Skill | None] = None, is_complete=False) -> None:
         self.name = name
         self.skill = skill
+        self.is_complete = is_complete
     
     @property
     def skill(self) -> Union[Skill, None]:

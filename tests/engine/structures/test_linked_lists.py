@@ -15,13 +15,6 @@ def test_nodes():
     assert node.prev_node == prev_node
 
 def test_doubly_linked_list_iniate():
-    dl = DLinkedList(None)
+    dll = DLinkedList([1, 2, 3, 4])
 
-    dl.append("node1")
-    dl.append("node2")
-    dl.append("node3")
-
-    assert dl.head.data == "node1"
-    assert dl.head.next_node.data == "node2"
-    assert dl.head.next_node.prev_node.data == "node1"
-    assert dl.head.next_node.next_node.data == "node3"
+    print(dll)

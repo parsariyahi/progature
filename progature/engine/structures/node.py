@@ -3,7 +3,7 @@ from typing import Union
 import uuid
 
 class Node:
-    def __init__(self, data, next_node: Union[Node | None] = None, prev_node: Union[Node | None] = None) -> None:
+    def __init__(self, data, next_node: Union[Node, None] = None, prev_node: Union[Node, None] = None) -> None:
         self.data = data
         self.next_node = next_node
         self.prev_node = prev_node

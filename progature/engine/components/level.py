@@ -10,6 +10,9 @@ class Level:
         self.quests = quests
         self.is_complete = is_complete
 
+    def __str__(self) -> str:
+        return self.name
+
     @property
     def quests(self) -> Union[List[Quest], None]:
         return self._quests

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Optional, Union, List
 
 from progature.engine.components.skill import Skill
-from progature.engine.component.chapter import Chapter
+from progature.engine.components.chapter import Chapter
 
 class Game:
 
@@ -11,6 +11,11 @@ class Game:
         self.skill = skill
         self.chapters = chapters
         self.is_complete = is_complete
+
+    def __str__(self) -> str:
+        string = f"""name: {self.name} - skill: {self.skill.name} \n\n chapters: {self.chapters}"""
+
+        return string
     
     @property
     def skill(self) -> Union[Skill, None]:

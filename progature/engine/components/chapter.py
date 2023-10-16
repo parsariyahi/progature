@@ -10,6 +10,9 @@ class Chapter:
         self.levels = levels
         self.is_complete = is_complete
 
+    def __str__(self) -> str:
+        return self.name
+
     @property 
     def levels(self) -> Union[List[Level], None]:
         return self._levels

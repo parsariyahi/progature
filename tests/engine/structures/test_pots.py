@@ -20,6 +20,13 @@ def test_loop_through_pot():
         assert item == number
         number += 1
 
+def test_get_item_from_pot():
+    pot = Pot([1, 2, 3, 4])
+    number = 2
+    index = 1
+
+    assert pot[index] == number
+
 def test_chapter_pot():
     chapters = ChapterUtil.create_chapter_bulk()
 

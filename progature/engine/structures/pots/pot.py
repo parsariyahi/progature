@@ -12,6 +12,9 @@ class Pot:
 
         return string
 
+    def __getitem__(self, index):
+        return self.items[index]
+
     def __iter__(self):
         self._index = 0
         return self

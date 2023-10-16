@@ -40,7 +40,7 @@ class GameLoader:
 
                 chapters.append(ch)
 
-            skill = Skill(game_json["skill"], chapters)
-            game = Game(game_json["name"], skill, is_complete=game_json["is_complete"])
+            skill = Skill(game_json["skill"])
+            game = Game(game_json["name"], skill, chapters, is_complete=game_json["is_complete"])
 
             return game

@@ -62,13 +62,4 @@ class SkillUtil:
 
     @staticmethod
     def create_skill():
-        chapters = ChapterUtil.create_chapter_bulk(5)
-        return Skill("random chapter", chapters=chapters)
-
-    def create_skill_bulk(count: int = 10):
-        skills = []
-        for counter in range(0, count):
-            chapters = ChapterUtil.create_chapter_bulk(5)
-            skills.append(
-                Skill(f"skill{str(counter)}", chapters=chapters)
-            ) 
+        return Skill("random chapter")

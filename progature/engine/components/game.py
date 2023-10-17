@@ -1,12 +1,13 @@
 from __future__ import annotations
 from typing import Optional, Union, List
 
+from progature.engine.structures.pots import ChapterPot
 from progature.engine.components.skill import Skill
 from progature.engine.components.chapter import Chapter
 
 class Game:
 
-    def __init__(self, name, skill: Optional[Skill | None] = None, chapters: Optional[List[Chapter] | None] = None, is_complete=False) -> None:
+    def __init__(self, name, skill: Optional[Skill | None] = None, chapters: Optional[ChapterPot[Chapter] | None] = None, is_complete=False) -> None:
         self.name = name
         self.skill = skill
         self.chapters = chapters
@@ -26,9 +27,9 @@ class Game:
         self._skill = skill
 
     @property
-    def chapters(self) -> Union[Skill, None]:
+    def chapters(self) -> Union[ChapterPot[Chapter], None]:
         return self._chapters
 
     @chapters.setter
-    def chapters(self, chapters: Optional[List[Chapter] | None]):
+    def chapters(self, chapters: Optional[ChapterPot[Chapter] | None]):
         self._chapters = chapters

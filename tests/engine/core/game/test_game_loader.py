@@ -2,7 +2,7 @@ import sys
 import os
 from pathlib import Path
 
-from progature.engine.core.games.loader import GameLoader
+from progature.engine.core.game.loader import GameLoader
 
 def test_game_loader():
     game_name = "py_game.json"

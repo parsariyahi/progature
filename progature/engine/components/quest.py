@@ -5,4 +5,5 @@ class Quest:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        return self.name
+        string = f"quest name: {self.name}"
+        return string

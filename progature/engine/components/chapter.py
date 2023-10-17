@@ -12,7 +12,8 @@ class Chapter:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        return self.name
+        string = f"chapter name: {self.name} | levels: {str(self.levels)}"
+        return string
 
     @property 
     def levels(self) -> Union[LevelPot[Level], None]:

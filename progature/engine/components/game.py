@@ -14,8 +14,7 @@ class Game:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        string = f"""name: {self.name} - skill: {self.skill.name} \n\n chapters: {self.chapters}"""
-
+        string = f"game name: {self.name} | skill: {self.skill.name} | chapters: {self.chapters}"
         return string
     
     @property

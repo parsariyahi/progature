@@ -12,6 +12,7 @@ class Level:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
+        string = f"level name: {self.name} | quests: {str(self.quests)}"
         return self.name
 
     @property

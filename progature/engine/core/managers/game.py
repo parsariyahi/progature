@@ -1,7 +1,7 @@
 from typing import Union
 
 from progature.engine.components import (
-    Game, Skill
+    Game, Skill, Chapter, Level
 )
 from progature.engine.structures.pots import (
     ChapterPot,
@@ -33,3 +33,11 @@ class GameManager:
 
     def nth_chapter(self, index):
         return self.game.chapters[index]
+
+    def get_chapter_levels(self, chapter_index) -> Union[LevelPot, None]:
+        chapter: Chapter =  self.game.chapters[chapter_index]
+        return chapter.levels
+
+    def get_level_quests(self, chapter_index, level_index) -> Union[QuestPot, None]:
+        level: Level = self.game.chapters[chapter_index].levels[level_index]
+        return level.quests

@@ -15,5 +15,10 @@ def test_game_manager_init():
     assert manager.current_chapter() == game.chapters[0]
     assert manager.next_cahpter() == game.chapters[1]
     assert manager.nth_chapter(2) == game.chapters[2]
+
+    levels = manager.get_chapter_levels(1)
+    quests = manager.get_level_quests(1, 1)
+    print(quests)
+
     
     

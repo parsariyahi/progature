@@ -3,7 +3,7 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.managers import GameManager
-from progature.engine.structures.pots import ChapterPot
+from progature.engine.structures.pots import ChapterPot, LevelPot
 from progature.engine.components import Game
 
 def init_layout():
@@ -45,4 +45,16 @@ def chapter_window(chapters: ChapterPot) -> pg.Window:
         [pg.Button("Close", enable_events=True, key="_CLOSE_")])
 
     window = pg.Window("Chpater", layout=layout, size=(500, 500), resizable=True, finalize=True)
+    return window
+
+def level_window(levels: LevelPot) -> pg.Window:
+    layout = []
+
+    layout.append(
+        [pg.Listbox(levels.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_LEVELS_")])
+
+    layout.append(
+        [pg.Button("Close", enable_events=True, key="_CLOSE_")])
+
+    window = pg.Window("Level", layout=layout, size=(500, 500), resizable=True, finalize=True)
     return window

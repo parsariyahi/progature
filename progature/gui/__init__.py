@@ -3,7 +3,7 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.managers import GameManager
-from progature.engine.structures.pots import ChapterPot, LevelPot
+from progature.engine.structures.pots import ChapterPot, LevelPot, QuestPot
 from progature.engine.components import Game
 
 def init_layout():
@@ -57,4 +57,16 @@ def level_window(levels: LevelPot) -> pg.Window:
         [pg.Button("Close", enable_events=True, key="_CLOSE_")])
 
     window = pg.Window("Level", layout=layout, size=(500, 500), resizable=True, finalize=True)
+    return window
+
+def quest_window(quests: QuestPot) -> pg.Window:
+    layout = []
+
+    layout.append(
+        [pg.Listbox(quests.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_QUESTS_")])
+
+    layout.append(
+        [pg.Button("Close", enable_events=True, key="_CLOSE_")])
+
+    window = pg.Window("Quest", layout=layout, size=(500, 500), resizable=True, finalize=True)
     return window

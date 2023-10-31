@@ -3,7 +3,7 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.managers import GameManager
-from progature.gui import init_layout, game_window, chapter_window, level_window
+from progature.gui import init_layout, game_window, chapter_window, level_window, quest_window
 
 if __name__ == "__main__":
     game_name = "py_game.json"
@@ -34,5 +34,10 @@ if __name__ == "__main__":
             chapter = values["_CHAPTERS_"][0]
             if chapter:
                 level_window = level_window(chapter.levels)
+
+        if event == "_LEVELS_":
+            level = values["_LEVELS_"][0]
+            if level:
+                quest_window = quest_window(level.quests)
 
     main_window.close()

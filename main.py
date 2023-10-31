@@ -1,17 +1,30 @@
+from pathlib import Path
 import PySimpleGUI as pg
 
-from progature.gui import init_layout
+from progature.engine.core.game.loader import GameLoader
+from progature.engine.core.managers import GameManager
+from progature.gui import init_layout, game_window, chapter_window
 
 if __name__ == "__main__":
-    layout = init_layout()
-    win = pg.Window("Proature", layout)
+    game_name = "py_game.json"
+    py_game_path = Path("progature/games") / game_name
+    game = GameLoader.load(py_game_path)
+    manager = GameManager(game)
+
+    main_window = game_window(game)
+
     while True:
-        event, value = win.read()
-        if event in {pg.WINDOW_CLOSED}:
-            break
+        window, event, values = pg.read_all_windows()
 
-        if event == "_CHAPTERS_":
-            chapter = value["_CHAPTERS_"][0]
-            print(chapter)
+        if event == pg.WIN_CLOSED:
+            if window.Title == "Game":
+                break
+            window.close()
 
-    win.close()
+        if event == "_CHAPTER_LIST_":
+            chapter_window = chapter_window(manager.chapters())
+
+        if event == "_CLOSE_":
+            window.close()
+
+    main_window.close()

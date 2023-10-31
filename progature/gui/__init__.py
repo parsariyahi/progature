@@ -3,6 +3,8 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.managers import GameManager
+from progature.engine.structures.pots import ChapterPot
+from progature.engine.components import Game
 
 def init_layout():
     layout = []
@@ -18,3 +20,29 @@ def init_layout():
     list_box = pg.Listbox(chapter_list.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_CHAPTERS_")
     layout.append([list_box])
     return layout
+
+def game_window(game: Game) -> pg.Window:
+    layout = []
+    manager = GameManager(game)
+
+    layout.append(
+        [pg.Text(f"Game name: {manager.game_name()}")])
+    layout.append(
+        [pg.Text(f"Game skill: {manager.game_skill()}")])
+    layout.append(
+        [pg.Button("Chapters", enable_events=True, key="_CHAPTER_LIST_")])
+
+    window = pg.Window("Game", layout=layout, size=(500, 500), resizable=True, finalize=True) 
+    return window
+
+def chapter_window(chapters: ChapterPot) -> pg.Window:
+    layout = []
+
+    layout.append(
+        [pg.Listbox(chapters.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_CHAPTERS_")])
+
+    layout.append(
+        [pg.Button("Close", enable_events=True, key="_CLOSE_")])
+
+    window = pg.Window("Chpater", layout=layout, size=(500, 500), resizable=True, finalize=True)
+    return window

@@ -21,6 +21,9 @@ class GameManager:
     def game_skill(self) -> Union[Skill, None]:
         return self.game.skill
 
+    def complete(self):
+        self.game.is_complete = True
+
     def chapters(self) -> Union[ChapterPot, None]:
         return self.game.chapters
 

@@ -14,30 +14,13 @@ if __name__ == "__main__":
     main_window = game_window(game)
 
     while True:
-        window, event, values = pg.read_all_windows()
+        event, values = main_window.read(timeout=10000)
 
-        if event == pg.WIN_CLOSED:
-            if window.Title == "Game":
-                break
-            window.close()
-            continue
-
-        if event == "_CLOSE_":
-            window.close()
-            continue
+        if event == pg.WIN_CLOSED or event == "_CLOSE_":
+            break
 
         if event == "_CHAPTER_LIST_":
-            chapter_window = chapter_window(manager.chapters())
+            chapter_window(manager.chapters())
             continue
-
-        if event == "_CHAPTERS_":
-            chapter = values["_CHAPTERS_"][0]
-            if chapter:
-                level_window = level_window(chapter.levels)
-
-        if event == "_LEVELS_":
-            level = values["_LEVELS_"][0]
-            if level:
-                quest_window = quest_window(level.quests)
 
     main_window.close()

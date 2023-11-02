@@ -1,13 +1,13 @@
 {
     "name": "Python biginner game",
     "skill": "basic python",
-    "is_complete": true,
+    "is_complete": false,
     "chapters": [
         {
             "order": 1,
             "name": "variables",
             "is_complete": false,
-            "levels": [
+            "levels":[
                 {
                     "name": "integers",
                     "is_complete": false,
@@ -32,7 +32,7 @@
             "order": 2,
             "name": "loops",
             "is_complete": false,
-            "levels": [
+            "levels":[
                 {
                     "name": "while loop",
                     "is_complete": false,
@@ -75,7 +75,7 @@
             "order": 3,
             "name": "conditions",
             "is_complete": false,
-            "levels": [
+            "levels":[
                 {
                     "name": "if conditions",
                     "is_complete": false,

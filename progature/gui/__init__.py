@@ -32,7 +32,8 @@ def game_window(game: Game) -> pg.Window:
         [pg.Text(f"Game skill: {manager.game_skill()}")])
 
     layout.append(
-        [pg.Button("Chapters", enable_events=True, key="_CHAPTER_LIST_")])
+        [pg.Button("Chapters", enable_events=True, key="_CHAPTER_LIST_"),
+        pg.Button("Complete", enable_events=True, key="_GAME_COMPLETE_")])
 
     layout.append(
         [pg.Button("Close", enable_events=True, key="_CLOSE_")])

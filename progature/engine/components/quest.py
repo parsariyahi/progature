@@ -7,3 +7,9 @@ class Quest:
     def __str__(self) -> str:
         string = f"quest name: {self.name}"
         return string
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Quest):
+            return self.name == other.name
+
+        raise TypeError("Type Error Quest")

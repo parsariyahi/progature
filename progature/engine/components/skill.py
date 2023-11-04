@@ -5,3 +5,9 @@ class Skill:
 
     def __str__(self) -> str:
         return self.name
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Skill):
+            return self.name == other.name
+
+        raise TypeError("Type Error Skill")

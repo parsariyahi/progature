@@ -14,14 +14,17 @@
                     "is_complete": false,
                     "quests": [
                         {
+                            "index": 0,
                             "name": "create int object",
                             "is_complete": false
                         },
                         {
+                            "index": 1,
                             "name": "add two integers",
                             "is_complete": false
                         },
                         {
+                            "index": 2,
                             "name": "compare two integers",
                             "is_complete": false
                         }
@@ -40,14 +43,17 @@
                     "is_complete": false,
                     "quests": [
                         {
+                            "index": 0,
                             "name": "create a while loop",
                             "is_complete": false
                         },
                         {
+                            "index": 1,
                             "name": "loop through a list with while loop",
                             "is_complete": false
                         },
                         {
+                            "index": 2,
                             "name": "create infinite loops with while loop",
                             "is_complete": false
                         }
@@ -59,14 +65,17 @@
                     "is_complete": false,
                     "quests": [
                         {
+                            "index": 0,
                             "name": "create a for loop",
                             "is_complete": false
                         },
                         {
+                            "index": 1,
                             "name": "loop through a list with for loop",
                             "is_complete": false
                         },
                         {
+                            "index": 2,
                             "name": "create infinite loops with for loop",
                             "is_complete": false
                         }
@@ -85,10 +94,12 @@
                     "is_complete": false,
                     "quests": [
                         {
+                            "index": 0,
                             "name": "create a if condition",
                             "is_complete": false
                         },
                         {
+                            "index": 1,
                             "name": "create a simple guess game with conditions, loops, variables",
                             "is_complete": false
                         }

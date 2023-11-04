@@ -15,6 +15,12 @@ class Chapter:
         string = f"chapter name: {self.name} | levels: {str(self.levels)}"
         return string
 
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Chapter):
+            return self.name == other.name
+
+        raise TypeError("Type Error Chapter")
+
     @property 
     def levels(self) -> Union[LevelPot[Level], None]:
         return self._levels

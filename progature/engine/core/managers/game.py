@@ -1,5 +1,7 @@
 from typing import Union
 
+from progature.engine.core.game.loader import GameLoader
+from progature.engine.core.game.handler import GameHandler
 from progature.engine.components import (
     Game, Skill, Chapter, Level
 )
@@ -11,8 +13,9 @@ from progature.engine.structures.pots import (
 
 class GameManager:
 
-    def __init__(self, game: Game):
-        self.game = game
+    def __init__(self, game_path: str):
+        self.game = GameLoader.load(game_path)
+        self._handler = GameHandler(self.game)
         self.current_chapter_index = 0
 
     def game_name(self) -> str:
@@ -21,7 +24,8 @@ class GameManager:
     def game_skill(self) -> Union[Skill, None]:
         return self.game.skill
 
-    def complete(self):
+    def game_complete(self):
+        self._handler.game_complete()
         self.game.is_complete = True
 
     def chapters(self) -> Union[ChapterPot, None]:

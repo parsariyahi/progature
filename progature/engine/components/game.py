@@ -7,7 +7,8 @@ from progature.engine.components.chapter import Chapter
 
 class Game:
 
-    def __init__(self, name, skill: Optional[Skill | None] = None, chapters: Optional[ChapterPot[Chapter] | None] = None, is_complete=False) -> None:
+    def __init__(self, file_path, name, skill: Optional[Skill | None] = None, chapters: Optional[ChapterPot[Chapter] | None] = None, is_complete=False) -> None:
+        self.file_path = file_path
         self.name = name
         self.skill = skill
         self.chapters = chapters
@@ -16,6 +17,12 @@ class Game:
     def __str__(self) -> str:
         string = f"game name: {self.name} | skill: {self.skill.name} | chapters: {self.chapters}"
         return string
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Game):
+            return self.name == other.name
+
+        raise TypeError("Type Error Game")
     
     @property
     def skill(self) -> Union[Skill, None]:

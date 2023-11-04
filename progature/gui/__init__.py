@@ -21,9 +21,8 @@ def init_layout():
     layout.append([list_box])
     return layout
 
-def game_window(game: Game) -> pg.Window:
+def game_window(manager: GameManager) -> pg.Window:
     layout = []
-    manager = GameManager(game)
 
     layout.append(
         [pg.Text(f"Game name: {manager.game_name()}")])

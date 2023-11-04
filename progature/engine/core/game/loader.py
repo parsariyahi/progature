@@ -46,7 +46,7 @@ class GameLoader:
                 chapters.append(ch)
 
             skill = Skill(game_json["skill"])
-            game = Game(game_json["name"], skill, is_complete=game_json["is_complete"])
+            game = Game(file_path, game_json["name"], skill, is_complete=game_json["is_complete"])
             game.chapters = ChapterPot(chapters)
 
             return game

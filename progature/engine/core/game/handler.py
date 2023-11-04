@@ -1,20 +1,21 @@
 from pathlib import Path
 import json
 
+from progature.engine.components import Game
 
 class GameHandler:
 
-    def __init__(self, game_path):
-        self.path = game_path
+    def __init__(self, game: Game):
+        self.game = game
 
     def game_complete(self):
         self._write("is_complete", True)
 
     def _write(self, key, value):
-        if not self.path:
+        if not self.game:
             return 
 
-        with open(self.path, "r+") as file:
+        with open(self.game.file_path, "r+") as file:
             game_json = json.load(file)
 
             game_json = self._write_on_game(game_json, key, value)

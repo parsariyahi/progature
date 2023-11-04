@@ -15,6 +15,12 @@ class Level:
         string = f"level name: {self.name} | quests: {str(self.quests)}"
         return self.name
 
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Level):
+            return self.name == other.name
+
+        raise TypeError("Type Error Level")
+
     @property
     def quests(self) -> Union[QuestPot[Quest], None]:
         return self._quests

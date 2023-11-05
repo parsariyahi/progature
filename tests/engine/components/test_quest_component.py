@@ -2,13 +2,13 @@ from progature.engine.components.quest import Quest
 
 
 def test_create_quest():
-    quest = Quest("quest1")
+    quest = Quest(0, "quest1")
 
     assert quest.name == "quest1"
 
 def test_complete_a_quest():
     #TODO use a create quest util
-    quest = Quest("quest1")
+    quest = Quest(0, "quest1")
     quest.is_complete = True
 
     assert quest.name == "quest1"

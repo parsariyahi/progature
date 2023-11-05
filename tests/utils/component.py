@@ -7,14 +7,14 @@ class QuestUtil:
 
     @staticmethod
     def create_quest():
-        return Quest("random quest")
+        return Quest(0, "random quest")
 
     @staticmethod
     def create_quest_bulk(count: int = 10):
         quests = []
         for counter in range(0, count):
             quests.append(
-                Quest(f"quest{str(counter)}")
+                Quest(counter, f"quest{str(counter)}")
             )
 
         return quests
@@ -25,7 +25,7 @@ class LevelUtil:
     @staticmethod
     def create_level():
         quests = QuestUtil.create_quest_bulk(count=5)
-        return Level("random level", quests=quests)
+        return Level(0, "random level", quests=quests)
 
     @staticmethod
     def create_level_bulk(count: int = 10):
@@ -33,7 +33,7 @@ class LevelUtil:
         for counter in range(0, count):
             quests = QuestUtil.create_quest_bulk(5)
             levels.append(
-                Level(f"level{str(counter)}", quests=quests)
+                Level(counter, f"level{str(counter)}", quests=quests)
             )
 
         return levels
@@ -44,7 +44,7 @@ class ChapterUtil:
     @staticmethod
     def create_chapter():
         levels = LevelUtil.create_level_bulk(5)
-        return Chapter("random chapter", levels=levels)
+        return Chapter(0, "random chapter", levels=levels)
 
     @staticmethod
     def create_chapter_bulk(count: int = 10):
@@ -52,7 +52,7 @@ class ChapterUtil:
         for counter in range(0, count):
             levels = LevelUtil.create_level_bulk(5)
             chapters.append(
-                Chapter(f"chapter{str(counter)}", levels=levels)
+                Chapter(counter, f"chapter{str(counter)}", levels=levels)
             )
 
         return chapters

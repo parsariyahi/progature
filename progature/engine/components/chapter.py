@@ -6,7 +6,8 @@ from progature.engine.components.level import Level
 
 class Chapter:
 
-    def __init__(self, name: str, levels: Optional[LevelPot[Level] | None] = None, is_complete=False):
+    def __init__(self, index: int, name: str, levels: Optional[LevelPot[Level] | None] = None, is_complete=False):
+        self.index = index
         self.name = name
         self.levels = levels
         self.is_complete = is_complete

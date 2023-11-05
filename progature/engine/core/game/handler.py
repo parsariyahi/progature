@@ -18,7 +18,7 @@ class GameHandler:
         self._write()
 
     def game_complete(self):
-        self._write("is_complete", True)
+        self._write_on_game("is_complete", True)
     
     def _load(self) -> Dict:
         with open(self.game.file_path, "r+") as file:

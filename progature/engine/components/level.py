@@ -6,7 +6,8 @@ from progature.engine.components.quest import Quest
 
 class Level:
     
-    def __init__(self, name: str, quests: Optional[QuestPot[Quest] | None] = None, is_complete=False) -> None:
+    def __init__(self, index: int, name: str, quests: Optional[QuestPot[Quest] | None] = None, is_complete=False) -> None:
+        self.index = index
         self.name = name
         self.quests = quests
         self.is_complete = is_complete

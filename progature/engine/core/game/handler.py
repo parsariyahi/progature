@@ -1,3 +1,4 @@
+from typing import Dict, Any
 from pathlib import Path
 import json
 
@@ -7,37 +8,34 @@ class GameHandler:
 
     def __init__(self, game: Game):
         self.game = game
+        self.game_json = {}
+
+    def __enter__(self):
+        self.game_json = self._load()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._write()
 
     def game_complete(self):
         self._write("is_complete", True)
-
-    def _write(self, key, value):
-        if not self.game:
-            return 
-
+    
+    def _load(self) -> Dict:
         with open(self.game.file_path, "r+") as file:
-            game_json = json.load(file)
+            return json.load(file)
 
-            game_json = self._write_on_game(game_json, key, value)
+    def _write(self):
+        with open(self.game.file_path, "w") as file:
+            json.dump(self.game_json, file, indent=4)
 
-            file.seek(0)
-            json.dump(game_json, file, indent=4)
-            file.truncate()
+    def _write_on_game(self, key, value):
+       self.game_json[key] = value
 
-        return game_json
+    def _write_on_chapter(self, key, value, chapter_index):
+        self.game_json["chapters"][chapter_index][key] = value
 
-    def _write_on_game(self, game, key, value):
-       game[key] = value
-       return game
+    def _write_on_level(self, key, value, chapter_index, level_index):
+        self.game_json["chapters"][chapter_index]["levels"][level_index][key] = value
 
-    @classmethod
-    def _write_on_chapter(cls):
-        pass
-
-    @classmethod
-    def _write_on_level(cls):
-        pass
-
-    @classmethod
-    def _write_on_quest(cls):
-        pass
+    def _write_on_quest(self, key, value, chapter_index, level_index, quest_index):
+        self.game_json["chapters"][chapter_index]["levels"][level_index]["quests"][quest_index][key] = value

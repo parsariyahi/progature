@@ -23,16 +23,16 @@ class GameLoader:
             quests = []
 
             for chapter in chapters_json:
-                ch = Chapter(chapter["name"], is_complete=chapter["is_complete"])
+                ch = Chapter(chapter["index"], chapter["name"], is_complete=chapter["is_complete"])
                 levels_json = chapter["levels"]
 
                 for level in levels_json:
-                    lv = Level(level["name"], is_complete=level["is_complete"])
+                    lv = Level(level["index"], level["name"], is_complete=level["is_complete"])
                     quests_json = level["quests"]
 
                     for quest in quests_json:
                         quests.append(
-                            Quest(quest["name"], is_complete=quest["is_complete"])
+                            Quest(quest["index"], quest["name"], is_complete=quest["is_complete"])
                         )
 
                     lv.quests = QuestPot(quests)

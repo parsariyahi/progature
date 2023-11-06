@@ -23,11 +23,11 @@ class GameHandler:
     def chapter_complete(self, chapter_index):
         self._write_on_chapter("is_complete", True, chapter_index)
 
-    def level_complete(self, level_index):
-        self._write_on_level("is_complete", True, level_index)
+    def level_complete(self, chapter_index, level_index):
+        self._write_on_level("is_complete", True, chapter_index, level_index)
 
-    def quest_complete(self, quest_index):
-        self._write_on_quest("is_complete", True, quest_index)
+    def quest_complete(self, chapter_index, level_index, quest_index):
+        self._write_on_quest("is_complete", True, chapter_index, level_index, quest_index)
     
     def _load(self) -> Dict:
         with open(self.game.file_path, "r+") as file:

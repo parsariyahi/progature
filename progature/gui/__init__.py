@@ -6,21 +6,6 @@ from progature.engine.core.managers import GameManager
 from progature.engine.structures.pots import ChapterPot, LevelPot, QuestPot
 from progature.engine.components import Game
 
-def init_layout():
-    layout = []
-
-    game_name = "py_game.json"
-    py_game_path = Path("progature/games") / game_name
-    game = GameLoader.load(py_game_path)
-    manager = GameManager(game)
-
-    chapter_list = manager.chapters()    
-
-
-    list_box = pg.Listbox(chapter_list.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_CHAPTERS_")
-    layout.append([list_box])
-    return layout
-
 def game_window(manager: GameManager) -> pg.Window:
     layout = []
 
@@ -31,6 +16,9 @@ def game_window(manager: GameManager) -> pg.Window:
         [pg.Text(f"Game skill: {manager.game_skill()}")])
 
     layout.append(
+        [pg.Text(f"Game Completion: {manager.game.is_complete}")])
+
+    layout.append(
         [pg.Button("Chapters", enable_events=True, key="_CHAPTER_LIST_"),
         pg.Button("Complete", enable_events=True, key="_GAME_COMPLETE_")])
 
@@ -39,17 +27,18 @@ def game_window(manager: GameManager) -> pg.Window:
 
 
     window = pg.Window("Game", layout=layout, size=(500, 500), resizable=True, finalize=True) 
-    return window
+    return manager, window
 
-def chapter_window(chapters: ChapterPot) -> pg.Window:
+def chapter_window(manager: GameManager) -> pg.Window:
     layout = []
-
+    chapters = manager.chapters().items
     layout.append(
-        [pg.Listbox(chapters.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_CHAPTERS_")])
+        [pg.Listbox(chapters, size=(100, 10), font=('Arial Bold', 14), expand_y=True, expand_x=True, enable_events=True, key="_CHAPTERS_")])
 
     layout.append(
         [pg.Button("Close", enable_events=True, key="_CLOSE_"),
-        pg.Button("Levels", enable_events=True, key="_LEVELS_LIST_")])
+        pg.Button("Levels", enable_events=True, key="_LEVELS_LIST_"),
+        pg.Button("Complete", enable_events=True, key="_CHAPTER_COMPLETE_")])
 
     window = pg.Window("Chpater", layout=layout, size=(500, 500), resizable=True, finalize=True)
     # return window
@@ -63,18 +52,26 @@ def chapter_window(chapters: ChapterPot) -> pg.Window:
         if event == "_LEVELS_LIST_":
             chapter = values["_CHAPTERS_"][0]
             if chapter:
-                level_window(chapter.levels)
+                level_window(manager, chapter.index)
                 continue
 
-def level_window(levels: LevelPot) -> pg.Window:
-    layout = []
+        if event == "_CHAPTER_COMPLETE_":
+            chapter = values["_CHAPTERS_"][0]
+            if chapter:
+                manager.chapter_complete(chapter.index)
+                chapters = manager.chapters().items
+                window["_CHAPTERS_"].update(chapters)
 
+def level_window(manager: GameManager, chapter_index) -> pg.Window:
+    layout = []
+    levels = manager.chapters()[chapter_index].levels.items
     layout.append(
-        [pg.Listbox(levels.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_LEVELS_")])
+        [pg.Listbox(levels, size=(100, 10), font=('Arial Bold', 14), expand_y=True, expand_x=True, enable_events=True, key="_LEVELS_")])
 
     layout.append(
         [pg.Button("Close", enable_events=True, key="_CLOSE_"),
-        pg.Button("Quests", enable_events=True, key="_QUESTS_LIST_")])
+        pg.Button("Quests", enable_events=True, key="_QUESTS_LIST_"),
+        pg.Button("Complete", enable_events=True, key="_LEVEL_COMPLETE_")])
 
     window = pg.Window("Level", layout=layout, size=(500, 500), resizable=True, finalize=True)
     # return window
@@ -88,17 +85,25 @@ def level_window(levels: LevelPot) -> pg.Window:
         if event == "_QUESTS_LIST_":
             level = values["_LEVELS_"][0]
             if level:
-                quest_window(level.quests)
+                quest_window(manager, chapter_index, level.index)
                 continue
 
-def quest_window(quests: QuestPot) -> pg.Window:
+        if event == "_LEVEL_COMPLETE_":
+            level = values["_LEVELS_"][0]
+            if level:
+                manager.level_complete(chapter_index, level.index)
+                levels = manager.chapters()[chapter_index].levels.items
+                window["_LEVELS_"].update(levels)
+
+def quest_window(manager: GameManager, chapter_index, level_index) -> pg.Window:
     layout = []
+    quests = manager.chapters()[chapter_index].levels[level_index].quests.items
+    layout.append(
+        [pg.Listbox(quests, size=(100, 10), font=('Arial Bold', 14), expand_y=True, expand_x=True, enable_events=True, key="_QUESTS_")])
 
     layout.append(
-        [pg.Listbox(quests.items, size=(100, 10), font=('Arial Bold', 14), expand_y=True, enable_events=True, key="_QUESTS_")])
-
-    layout.append(
-        [pg.Button("Close", enable_events=True, key="_CLOSE_")])
+        [pg.Button("Close", enable_events=True, key="_CLOSE_"),
+        pg.Button("Complete", enable_events=True, key="_QUEST_COMPLETE_")])
 
     window = pg.Window("Quest", layout=layout, size=(500, 500), resizable=True, finalize=True)
     # return window
@@ -108,3 +113,10 @@ def quest_window(quests: QuestPot) -> pg.Window:
         if event == "_CLOSE_" or event == pg.WIN_CLOSED:
             window.close()
             break
+
+        if event == "_QUEST_COMPLETE_":
+            quest = values["_QUESTS_"][0]
+            if quest:
+                manager.quest_complete(chapter_index, level_index, quest.index)
+                quests = manager.chapters()[chapter_index].levels[level_index].quests.items
+                window["_QUESTS_"].update(quests)

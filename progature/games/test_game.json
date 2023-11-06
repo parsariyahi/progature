@@ -21,12 +21,12 @@
                         {
                             "index": 1,
                             "name": "add two integers",
-                            "is_complete": false
+                            "is_complete": true
                         },
                         {
                             "index": 2,
                             "name": "compare two integers",
-                            "is_complete": false
+                            "is_complete": true
                         }
                     ]
                 }
@@ -62,7 +62,7 @@
                 {
                     "index": 1,
                     "name": "for loooops",
-                    "is_complete": false,
+                    "is_complete": true,
                     "quests": [
                         {
                             "index": 0,
@@ -86,17 +86,17 @@
         {
             "index": 2,
             "name": "conditions",
-            "is_complete": false,
+            "is_complete": true,
             "levels": [
                 {
                     "index": 0,
                     "name": "if conditions",
-                    "is_complete": false,
+                    "is_complete": true,
                     "quests": [
                         {
                             "index": 0,
                             "name": "create a if condition",
-                            "is_complete": false
+                            "is_complete": true
                         },
                         {
                             "index": 1,

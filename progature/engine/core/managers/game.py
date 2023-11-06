@@ -32,7 +32,7 @@ class GameManager:
     def chapter_complete(self, chapter_index):
         with self._handler as h:
             h.chapter_complete(chapter_index)
-            self.game.chapters[chapter_index].is_compelte = True
+            self.game.chapters[chapter_index].is_complete = True
 
     def level_complete(self, chapter_index, level_index):
         with self._handler as h:

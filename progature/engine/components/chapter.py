@@ -13,7 +13,7 @@ class Chapter:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        string = f"chapter name: {self.name} | levels: {str(self.levels)}"
+        string = f"{self.index}.{self.name}:{self.is_complete}"
         return string
 
     def __eq__(self, other) -> bool:

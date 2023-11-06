@@ -6,7 +6,7 @@ class Quest:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        string = f"quest name: {self.name}"
+        string = f"{self.index}.{self.name}:{self.is_complete}"
         return string
 
     def __eq__(self, other) -> bool:

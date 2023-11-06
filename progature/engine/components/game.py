@@ -15,7 +15,7 @@ class Game:
         self.is_complete = is_complete
 
     def __str__(self) -> str:
-        string = f"game name: {self.name} | skill: {self.skill.name} | chapters: {self.chapters}"
+        string = f"{self.name}:{self.is_complete}"
         return string
 
     def __eq__(self, other) -> bool:

@@ -15,7 +15,7 @@ class GameManager:
 
     def __init__(self, game_path: str):
         self.game = GameLoader.load(game_path)
-        self._handler = GameHandler(self.game)
+        self._handler = GameHandler(game_path)
         self.current_chapter_index = 0
 
     def game_name(self) -> str:

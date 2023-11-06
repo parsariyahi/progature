@@ -6,8 +6,8 @@ from progature.engine.components import Game
 
 class GameHandler:
 
-    def __init__(self, game: Game):
-        self.game = game
+    def __init__(self, game_path: str):
+        self.game_path = game_path
         self.game_json = {}
 
     def __enter__(self):
@@ -30,11 +30,11 @@ class GameHandler:
         self._write_on_quest("is_complete", True, chapter_index, level_index, quest_index)
     
     def _load(self) -> Dict:
-        with open(self.game.file_path, "r+") as file:
+        with open(self.game_path, "r+") as file:
             return json.load(file)
 
     def _write(self):
-        with open(self.game.file_path, "w") as file:
+        with open(self.game_path, "w") as file:
             json.dump(self.game_json, file, indent=4)
 
     def _write_on_game(self, key, value):

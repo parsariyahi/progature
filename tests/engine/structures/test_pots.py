@@ -3,13 +3,7 @@ from tests.utils.component import (
     LevelUtil,
     QuestUtil
 )
-
-from progature.engine.structures.pots import (
-    Pot,
-    ChapterPot,
-    LevelPot,
-    QuestPot,
-)
+from progature.engine.structures import Pot
 
 
 def test_loop_through_pot():
@@ -27,17 +21,17 @@ def test_get_item_from_pot():
 
     assert pot[index] == number
 
-def test_chapter_pot():
+def test_pot_with_chapter():
     chapters = ChapterUtil.create_chapter_bulk()
 
-    pot = ChapterPot(chapters)
+    pot = Pot(chapters)
 
-def test_level_pot():
+def test_pot_with_level():
     levels = LevelUtil.create_level_bulk()
 
-    pot = LevelPot(levels)
+    pot = Pot(levels)
 
-def test_quest_pot():
+def test_pot_with_quest():
     quests = QuestUtil.create_quest_bulk()
 
-    pot = QuestPot(quests)
+    pot = Pot(quests)

@@ -3,7 +3,7 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.managers import GameManager
-from progature.engine.structures.pots import ChapterPot, LevelPot, QuestPot
+from progature.engine.structures import Pot
 from progature.engine.components import Game
 
 def game_window(manager: GameManager) -> pg.Window:

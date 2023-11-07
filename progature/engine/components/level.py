@@ -1,12 +1,12 @@
 from __future__ import annotations
 from typing import List, Optional, Union
 
-from progature.engine.structures.pots import QuestPot
+from progature.engine.structures import Pot
 from progature.engine.components.quest import Quest
 
 class Level:
     
-    def __init__(self, index: int, name: str, quests: Optional[QuestPot[Quest] | None] = None, is_complete=False) -> None:
+    def __init__(self, index: int, name: str, quests: Optional[Pot[Quest] | None] = None, is_complete=False) -> None:
         self.index = index
         self.name = name
         self.quests = quests
@@ -23,9 +23,9 @@ class Level:
         raise TypeError("Type Error Level")
 
     @property
-    def quests(self) -> Union[QuestPot[Quest], None]:
+    def quests(self) -> Union[Pot[Quest], None]:
         return self._quests
 
     @quests.setter
-    def quests(self, quests: Optional[QuestPot[Quest] | None]) -> None:
+    def quests(self, quests: Optional[Pot[Quest] | None]) -> None:
         self._quests = quests

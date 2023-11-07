@@ -1,8 +1,8 @@
-from progature.engine.structures.pots import ChapterPot
+from progature.engine.structures import Pot
 
 class ChapterManager:
 
-    def __init__(self, chapter_pot: ChapterPot):
+    def __init__(self, chapter_pot: Pot):
         self.chapter_pot = chapter_pot
         self.current_chapter_index = 0
 

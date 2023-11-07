@@ -1,12 +1,12 @@
 from __future__ import annotations
 from typing import List, Optional, Union
 
-from progature.engine.structures.pots import LevelPot
+from progature.engine.structures import Pot
 from progature.engine.components.level import Level
 
 class Chapter:
 
-    def __init__(self, index: int, name: str, levels: Optional[LevelPot[Level] | None] = None, is_complete=False):
+    def __init__(self, index: int, name: str, levels: Optional[Pot[Level] | None] = None, is_complete=False):
         self.index = index
         self.name = name
         self.levels = levels
@@ -23,9 +23,9 @@ class Chapter:
         raise TypeError("Type Error Chapter")
 
     @property 
-    def levels(self) -> Union[LevelPot[Level], None]:
+    def levels(self) -> Union[Pot[Level], None]:
         return self._levels
 
     @levels.setter
-    def levels(self, levels: Optional[LevelPot[Level] | None]):
+    def levels(self, levels: Optional[Pot[Level] | None]):
         self._levels = levels

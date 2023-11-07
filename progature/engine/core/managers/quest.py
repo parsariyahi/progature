@@ -1,8 +1,8 @@
-from progature.engine.structures.pots import QuestPot
+from progature.engine.structures import Pot
 
 class QuestManager:
 
-    def __init__(self, quest_pot: QuestPot):
+    def __init__(self, quest_pot: Pot):
         self.quest_pot = quest_pot
         self.current_quest_index = 0
 

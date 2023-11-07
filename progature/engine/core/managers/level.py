@@ -1,8 +1,8 @@
-from progature.engine.structures.pots import LevelPot
+from progature.engine.structures import Pot
 
 class LevelManager:
 
-    def __init__(self, level_pot: LevelPot):
+    def __init__(self, level_pot: Pot):
         self.level_pot = level_pot
         self.current_level_index = 0
 

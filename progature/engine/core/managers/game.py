@@ -3,13 +3,9 @@ from typing import Union
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.game.handler import GameHandler
 from progature.engine.components import (
-    Game, Skill, Chapter, Level
+    Game, Skill, Chapter, Level, Quest
 )
-from progature.engine.structures.pots import (
-    ChapterPot,
-    LevelPot,
-    QuestPot,
-)
+from progature.engine.structures import Pot
 
 class GameManager:
 
@@ -44,7 +40,7 @@ class GameManager:
             h.quest_complete(chapter_index, level_index, quest_index)
             self.game.chapters[chapter_index].levels[level_index].quests[quest_index].is_complete = True
 
-    def chapters(self) -> Union[ChapterPot, None]:
+    def chapters(self) -> Union[Pot[Chapter], None]:
         return self.game.chapters
 
     def current_chapter(self) :
@@ -57,10 +53,10 @@ class GameManager:
     def nth_chapter(self, index):
         return self.game.chapters[index]
 
-    def get_chapter_levels(self, chapter_index) -> Union[LevelPot, None]:
+    def get_chapter_levels(self, chapter_index) -> Union[Pot[Level], None]:
         chapter: Chapter =  self.game.chapters[chapter_index]
         return chapter.levels
 
-    def get_level_quests(self, chapter_index, level_index) -> Union[QuestPot, None]:
+    def get_level_quests(self, chapter_index, level_index) -> Union[Pot[Quest], None]:
         level: Level = self.game.chapters[chapter_index].levels[level_index]
         return level.quests

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Dict
 
 from progature.engine.structures import Pot
 from progature.engine.components.quest import Quest
@@ -21,6 +21,14 @@ class Level:
             return self.name == other.name
 
         raise TypeError("Type Error Level")
+
+    def as_dict(self) -> Dict:
+        return {
+            "index": self.index,
+            "name": self.name,
+            "is_complete": self.is_complete,
+            "quests": [quest.as_dict() for quest in self.quests],
+        }
 
     @property
     def quests(self) -> Union[Pot[Quest], None]:

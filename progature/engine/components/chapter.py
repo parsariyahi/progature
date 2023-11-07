@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Dict
 
 from progature.engine.structures import Pot
 from progature.engine.components.level import Level
@@ -21,6 +21,14 @@ class Chapter:
             return self.name == other.name
 
         raise TypeError("Type Error Chapter")
+
+    def as_dict(self) -> Dict:
+        return {
+            "index": self.index,
+            "name": self.name,
+            "is_complete": self.is_complete,
+            "levels": [level.as_dict() for level in self.levels],
+        }
 
     @property 
     def levels(self) -> Union[Pot[Level], None]:

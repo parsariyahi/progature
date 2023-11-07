@@ -1,3 +1,5 @@
+from typing import Dict
+
 class Skill:
 
     def __init__(self, name) -> None:
@@ -11,3 +13,8 @@ class Skill:
             return self.name == other.name
 
         raise TypeError("Type Error Skill")
+
+    def as_dict(self) -> Dict:
+        return {
+            "name": self.name,
+        }

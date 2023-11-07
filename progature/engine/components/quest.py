@@ -1,3 +1,5 @@
+from typing import Dict
+
 class Quest:
     
     def __init__(self, index: int, name, is_complete=False):
@@ -14,3 +16,10 @@ class Quest:
             return self.name == other.name
 
         raise TypeError("Type Error Quest")
+
+    def as_dict(self) -> Dict:
+        return {
+            "index": self.index,
+            "name": self.name,
+            "is_complete": self.is_complete,
+        }

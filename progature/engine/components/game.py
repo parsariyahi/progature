@@ -23,7 +23,15 @@ class Game:
             return self.name == other.name
 
         raise TypeError("Type Error Game")
-    
+
+    def as_dict(self) -> Dict:
+        return {
+            "name": self.name,
+            "skill": self.skill.name if self.skill else "",
+            "is_complete": self.is_complete,
+            "chapters": [chapter.as_dict() for chapter in self.chapters] if self.chapters else [],
+        }
+
     @property
     def skill(self) -> Union[Skill, None]:
         return self._skill

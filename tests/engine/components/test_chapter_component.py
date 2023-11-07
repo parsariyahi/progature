@@ -3,8 +3,9 @@ from tests.utils.component import LevelUtil
 
 def test_create_chapter():
     levels = LevelUtil.create_level_bulk()
-
     chapter = Chapter(0, "chapter1", levels=levels)
+
+    # print(chapter.as_dict())
 
     assert chapter.name == "chapter1"
     assert chapter.levels == levels

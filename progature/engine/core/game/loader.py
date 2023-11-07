@@ -1,10 +1,6 @@
 import json
 
-from progature.engine.structures.pots import (
-    ChapterPot,
-    LevelPot,
-    QuestPot,
-)
+from progature.engine.structures import Pot
 from progature.engine.components import (
     Game, Skill, Chapter, Level, Quest
 )
@@ -35,18 +31,18 @@ class GameLoader:
                             Quest(quest["index"], quest["name"], is_complete=quest["is_complete"])
                         )
 
-                    lv.quests = QuestPot(quests)
+                    lv.quests = Pot(quests)
                     quests = []
 
                     levels.append(lv)
 
-                ch.levels = LevelPot(levels)
+                ch.levels = Pot(levels)
                 levels = []
 
                 chapters.append(ch)
 
             skill = Skill(game_json["skill"])
             game = Game(file_path, game_json["name"], skill, is_complete=game_json["is_complete"])
-            game.chapters = ChapterPot(chapters)
+            game.chapters = Pot(chapters)
 
             return game

@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.game.handler import GameHandler
-from progature.engine.core.managers import GameManager
+from progature.engine.core.game.manager import GameManager
 from progature.gui import game_window, chapter_window, level_window, quest_window
 
 if __name__ == "__main__":

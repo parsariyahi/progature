@@ -2,7 +2,7 @@ from pathlib import Path
 import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
-from progature.engine.core.managers import GameManager
+from progature.engine.core.game.manager import GameManager
 from progature.engine.structures import Pot
 from progature.engine.components import Game
 

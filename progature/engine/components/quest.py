@@ -2,7 +2,7 @@ from typing import Dict
 
 
 class Quest:
-    def __init__(self, index: int, name, is_complete=False):
+    def __init__(self, index: int, name: str, is_complete=False):
         """Quest component contains quest data of each quest in game,
         This Class is universal interface for Quest all over the app.
         We just work with this class when we intract with our Quests.

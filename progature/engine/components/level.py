@@ -4,9 +4,15 @@ from typing import List, Optional, Union, Dict
 from progature.engine.structures import Pot
 from progature.engine.components.quest import Quest
 
+
 class Level:
-    
-    def __init__(self, index: int, name: str, quests: Optional[Pot[Quest] | None] = None, is_complete=False) -> None:
+    def __init__(
+        self,
+        index: int,
+        name: str,
+        quests: Optional[Pot[Quest] | None] = None,
+        is_complete=False,
+    ) -> None:
         self.index = index
         self.name = name
         self.quests = quests

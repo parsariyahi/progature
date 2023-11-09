@@ -1,7 +1,7 @@
 from typing import Dict
 
+
 class Quest:
-    
     def __init__(self, index: int, name, is_complete=False):
         self.index = index
         self.name = name

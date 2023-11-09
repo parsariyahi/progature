@@ -4,8 +4,8 @@ import json
 
 from progature.engine.components import Game
 
-class GameHandler:
 
+class GameHandler:
     def __init__(self, game_path: str):
         self.game_path = game_path
         self.game_json = {}
@@ -27,8 +27,10 @@ class GameHandler:
         self._write_on_level("is_complete", True, chapter_index, level_index)
 
     def quest_complete(self, chapter_index, level_index, quest_index):
-        self._write_on_quest("is_complete", True, chapter_index, level_index, quest_index)
-    
+        self._write_on_quest(
+            "is_complete", True, chapter_index, level_index, quest_index
+        )
+
     def _load(self) -> Dict:
         with open(self.game_path, "r+") as file:
             return json.load(file)
@@ -38,13 +40,16 @@ class GameHandler:
             json.dump(self.game_json, file, indent=4)
 
     def _write_on_game(self, key, value):
-       self.game_json[key] = value
+        self.game_json[key] = value
 
     def _write_on_chapter(self, key, value, chapter_index):
         self.game_json["chapters"][chapter_index][key] = value
 
     def _write_on_level(self, key, value, chapter_index, level_index):
-        self.game_json["chapters"][chapter_index]["levels"][level_index][key] = value
+        self.game_json["chapters"][chapter_index]\
+                      ["levels"][level_index][key] = value
 
     def _write_on_quest(self, key, value, chapter_index, level_index, quest_index):
-        self.game_json["chapters"][chapter_index]["levels"][level_index]["quests"][quest_index][key] = value
+        self.game_json["chapters"][chapter_index]\
+                      ["levels"][level_index]\
+                      ["quests"][quest_index][key] = value

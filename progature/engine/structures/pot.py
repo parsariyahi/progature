@@ -9,8 +9,8 @@ Quest = TypeVar("Quest")
 
 T = TypeVar("T", Game, Skill, Chapter, Level, Quest)
 
-class Pot(Generic[T]):
 
+class Pot(Generic[T]):
     def __init__(self, items: Iterable[T]):
         self.items = items
 
@@ -29,7 +29,7 @@ class Pot(Generic[T]):
     def __next__(self) -> T:
         if self._index > len(self.items) - 1:
             raise StopIteration
-        
+
         item: T = self.items[self._index]
         self._index += 1
 

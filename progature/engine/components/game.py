@@ -5,9 +5,16 @@ from progature.engine.structures import Pot
 from progature.engine.components.skill import Skill
 from progature.engine.components.chapter import Chapter
 
-class Game:
 
-    def __init__(self, file_path, name, skill: Optional[Skill | None] = None, chapters: Optional[Pot[Chapter] | None] = None, is_complete=False) -> None:
+class Game:
+    def __init__(
+        self,
+        file_path,
+        name,
+        skill: Optional[Skill | None] = None,
+        chapters: Optional[Pot[Chapter] | None] = None,
+        is_complete=False,
+    ) -> None:
         self.file_path = file_path
         self.name = name
         self.skill = skill

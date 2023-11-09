@@ -1,7 +1,7 @@
 from typing import Dict
 
-class Skill:
 
+class Skill:
     def __init__(self, name) -> None:
         self.name = name
 

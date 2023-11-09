@@ -4,9 +4,15 @@ from typing import List, Optional, Union, Dict
 from progature.engine.structures import Pot
 from progature.engine.components.level import Level
 
-class Chapter:
 
-    def __init__(self, index: int, name: str, levels: Optional[Pot[Level] | None] = None, is_complete=False):
+class Chapter:
+    def __init__(
+        self,
+        index: int,
+        name: str,
+        levels: Optional[Pot[Level] | None] = None,
+        is_complete=False,
+    ):
         self.index = index
         self.name = name
         self.levels = levels
@@ -30,7 +36,7 @@ class Chapter:
             "levels": [level.as_dict() for level in self.levels],
         }
 
-    @property 
+    @property
     def levels(self) -> Union[Pot[Level], None]:
         return self._levels
 

@@ -4,8 +4,8 @@ import uuid
 
 from progature.engine.structures import Node
 
-class DLinkedList:
 
+class DLinkedList:
     def __init__(self, items: Iterable):
         self.head = None
         for item in items:
@@ -18,7 +18,6 @@ class DLinkedList:
             node.prev_node = None
             self.head = node
             return
-
 
         node.next_node = self.head
         self.head = node
@@ -36,7 +35,7 @@ class DLinkedList:
         pointer = self.head
 
         while pointer is not None:
-            result += (" < - " + str(pointer.data) + " -> ")
+            result += " < - " + str(pointer.data) + " -> "
             pointer = pointer.next_node
 
         return result

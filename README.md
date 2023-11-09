@@ -1,6 +1,16 @@
 # progature
 Programming Adventure Game
 
+## Run the game
+first install requirements
+```bash
+pip install -r requirements.txt
+```
+then run ``main.py``
+```bash
+python progature/main.py
+```
+
 ## Main Page
 ![Progature Image](/docs/images/main_page.png)
 

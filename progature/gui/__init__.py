@@ -68,17 +68,26 @@ def chapter_window(manager: GameManager) -> pg.Window:
             break
 
         if event == "_LEVELS_LIST_":
-            chapter = values["_CHAPTERS_"][0]
-            if chapter:
-                level_window(manager, chapter.index)
-                continue
+            if values["_CHAPTERS_"]:
+                chapter = values["_CHAPTERS_"][0]
+                if chapter:
+                    level_window(manager, chapter.index)
+            else:
+                pg.popup_error("Please select a chapter")
+
+            continue
 
         if event == "_CHAPTER_COMPLETE_":
-            chapter = values["_CHAPTERS_"][0]
-            if chapter:
-                manager.chapter_complete(chapter.index)
-                chapters = manager.chapters().items
-                window["_CHAPTERS_"].update(chapters)
+            if values["_CHAPTERS_"]:
+                chapter = values["_CHAPTERS_"][0]
+                if chapter:
+                    manager.chapter_complete(chapter.index)
+                    chapters = manager.chapters().items
+                    window["_CHAPTERS_"].update(chapters)
+            else:
+                pg.popup_error("Please select a chapter")
+
+            continue
 
 
 def level_window(manager: GameManager, chapter_index) -> pg.Window:
@@ -118,17 +127,26 @@ def level_window(manager: GameManager, chapter_index) -> pg.Window:
             break
 
         if event == "_QUESTS_LIST_":
-            level = values["_LEVELS_"][0]
-            if level:
-                quest_window(manager, chapter_index, level.index)
-                continue
+            if values["_LEVELS_"]:
+                level = values["_LEVELS_"][0]
+                if level:
+                    quest_window(manager, chapter_index, level.index)
+            else:
+                pg.popup_error("Please select a level")
+
+            continue
 
         if event == "_LEVEL_COMPLETE_":
-            level = values["_LEVELS_"][0]
-            if level:
-                manager.level_complete(chapter_index, level.index)
-                levels = manager.chapters()[chapter_index].levels.items
-                window["_LEVELS_"].update(levels)
+            if values["_LEVELS_"]:
+                level = values["_LEVELS_"][0]
+                if level:
+                    manager.level_complete(chapter_index, level.index)
+                    levels = manager.chapters()[chapter_index].levels.items
+                    window["_LEVELS_"].update(levels)
+            else:
+                pg.popup_error("Please select a level")
+
+            continue
 
 
 def quest_window(manager: GameManager, chapter_index, level_index) -> pg.Window:
@@ -167,10 +185,15 @@ def quest_window(manager: GameManager, chapter_index, level_index) -> pg.Window:
             break
 
         if event == "_QUEST_COMPLETE_":
-            quest = values["_QUESTS_"][0]
-            if quest:
-                manager.quest_complete(chapter_index, level_index, quest.index)
-                quests = (
-                    manager.chapters()[chapter_index].levels[level_index].quests.items
-                )
-                window["_QUESTS_"].update(quests)
+            if values["_QUESTS_"]:
+                quest = values["_QUESTS_"][0]
+                if quest:
+                    manager.quest_complete(chapter_index, level_index, quest.index)
+                    quests = (
+                        manager.chapters()[chapter_index].levels[level_index].quests.items
+                    )
+                    window["_QUESTS_"].update(quests)
+            else:
+                pg.popup_error("Please select a quest")
+
+            continue

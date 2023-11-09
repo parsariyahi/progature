@@ -101,7 +101,7 @@
                         {
                             "index": 1,
                             "name": "create a simple guess game with conditions, loops, variables",
-                            "is_complete": false
+                            "is_complete": true
                         }
                     ]
                 }

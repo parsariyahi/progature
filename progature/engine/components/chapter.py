@@ -13,6 +13,24 @@ class Chapter:
         levels: Optional[Pot[Level] | None] = None,
         is_complete=False,
     ):
+        """Chapter component contains chapter data of each chapter in game,
+        This Class is universal interface for Chapter all over the app.
+        We just work with this class when we intract with our Chapters.
+
+        Parameters
+        ----------
+        index: int
+            The index of each chapter inside chapter list in "".json"" file
+
+        name : string
+            The name of chapter.
+
+        levels : Pot[Level] or None, optional
+            levels of each chapter.
+
+        is_complete : bool, optional
+            Status of chapter completion
+        """
         self.index = index
         self.name = name
         self.levels = levels

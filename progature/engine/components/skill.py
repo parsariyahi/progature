@@ -3,6 +3,15 @@ from typing import Dict
 
 class Skill:
     def __init__(self, name) -> None:
+        """Skill component contains quest data of each skill in game,
+        This Class is universal interface for Skill all over the app.
+        We just work with this class when we intract with our Skills.
+
+        Parameters
+        ----------
+        name : string
+            The name of skill.
+        """
         self.name = name
 
     def __str__(self) -> str:

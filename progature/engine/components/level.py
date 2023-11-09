@@ -13,6 +13,24 @@ class Level:
         quests: Optional[Pot[Quest] | None] = None,
         is_complete=False,
     ) -> None:
+        """Level component contains level data of each level in game,
+        This Class is universal interface for Level all over the app.
+        We just work with this class when we intract with our Levels.
+
+        Parameters
+        ----------
+        index: int
+            The index of each level inside level list in "".json"" file
+
+        name : string
+            The name of level.
+
+        quests : Pot[Quest] or None, optional
+            qeusts of each level.
+
+        is_complete : bool, optional
+            Status of level completion
+        """
         self.index = index
         self.name = name
         self.quests = quests

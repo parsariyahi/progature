@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from progature.engine.core.managers import GameManager
+from progature.engine.core.game.manager import GameManager
 from progature.engine.core.game.loader import GameLoader
 
 

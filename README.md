@@ -12,10 +12,10 @@ python progature/main.py
 ```
 
 ## Main Page
-![Progature Image](/docs/images/main_page.png)
+![Progature Image](/docs/docs/images/main_page.png)
 
 ## Chapter Page 
-![Progature Image](/docs/images/chapter_page.png)
+![Progature Image](/docs/docs/images/chapter_page.png)
 
 # Description
 **Progature** is a programmig advanture game, games are stored in ``.json`` format and there are several parts in games. <br>

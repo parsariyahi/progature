@@ -1,1 +1,7 @@
 site_name: Progature
+site_url: https://progature.readthedocs.io/
+
+nav:
+  - Home: 'index.md'
+  
+  - License: 'license.md'

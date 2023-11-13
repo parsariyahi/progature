@@ -6,7 +6,7 @@ from progature.engine.core.game.loader import GameLoader
 
 def test_game_manager_init():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
 
@@ -15,7 +15,7 @@ def test_game_manager_init():
 
 def test_game_manager_game_complete():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
 
@@ -25,7 +25,7 @@ def test_game_manager_game_complete():
 
 def test_game_manager_game_complete():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
     manager.game_complete()
@@ -34,7 +34,7 @@ def test_game_manager_game_complete():
 
 def test_game_manager_chaper_complete():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
 
@@ -45,7 +45,7 @@ def test_game_manager_chaper_complete():
 
 def test_game_manager_level_complete():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
 
@@ -57,7 +57,7 @@ def test_game_manager_level_complete():
 
 def test_game_manager_quest_complete():
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     game = GameLoader.load(test_game_path.absolute())
     manager = GameManager(test_game_path)
 

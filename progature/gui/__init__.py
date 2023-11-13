@@ -3,9 +3,41 @@ import PySimpleGUI as pg
 
 from progature.engine.core.game.loader import GameLoader
 from progature.engine.core.game.manager import GameManager
+from progature.utils.loader import load_all_games
 from progature.engine.structures import Pot
 from progature.engine.components import Game
 
+
+def main_window() -> pg.Window:
+    layout = []
+    game_pot = load_all_games()
+    games = game_pot.items
+    layout.append(
+        [
+            pg.Listbox(
+                games,
+                size=(100, 10),
+                font=("Arial Bold", 14),
+                expand_y=True,
+                expand_x=True,
+                enable_events=True,
+                key="_GAMES_",
+            )
+        ]
+    )
+
+    layout.append(
+        [
+            pg.Button("Close", enable_events=True, key="_CLOSE_"),
+            pg.Button("Open Game", enable_events=True, key="_GAME_OPEN_"),
+        ]
+    )
+
+    window = pg.Window(
+        "Progature", layout=layout, size=(500, 500), resizable=True, finalize=True
+    )
+    
+    return window
 
 def game_window(manager: GameManager) -> pg.Window:
     layout = []
@@ -28,8 +60,24 @@ def game_window(manager: GameManager) -> pg.Window:
     window = pg.Window(
         "Game", layout=layout, size=(500, 500), resizable=True, finalize=True
     )
-    return manager, window
 
+    while True:
+        event, values = window.read(timeout=10000)
+
+        if event == pg.WIN_CLOSED or event == "_CLOSE_":
+            window.close()
+
+            break
+
+        if event == "_GAME_COMPLETE_":
+            manager.game_complete()
+
+            continue
+
+        if event == "_CHAPTER_LIST_":
+            chapter_window(manager)
+
+            continue
 
 def chapter_window(manager: GameManager) -> pg.Window:
     layout = []

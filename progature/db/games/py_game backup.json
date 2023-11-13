@@ -35,7 +35,7 @@
         {
             "index": 1,
             "name": "loops",
-            "is_complete": false,
+            "is_complete": true,
             "levels": [
                 {
                     "index": 0,

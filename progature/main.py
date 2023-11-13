@@ -12,7 +12,7 @@ from progature.gui import game_window, chapter_window, level_window, quest_windo
 
 if __name__ == "__main__":
     game_name = "test_game.json"
-    test_game_path = Path("progature/games") / game_name
+    test_game_path = Path("progature/db/games") / game_name
     manager = GameManager(test_game_path.absolute())
 
     maanger, main_window = game_window(manager)

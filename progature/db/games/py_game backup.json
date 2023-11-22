@@ -6,7 +6,7 @@
         {
             "index": 0,
             "name": "variables",
-            "is_complete": false,
+            "is_complete": true,
             "levels": [
                 {
                     "index": 0,

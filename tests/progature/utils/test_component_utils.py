@@ -172,9 +172,42 @@ def test_create_full_game_with_component_utils():
         ]
     }
     
-    # skill = create_skill(final_game["skill"])
-    # chapters = create_bulk_chapters()
-    # game = create_game("db/python_basic.json",
-    #                    name=final_game["name"],
-    #                    skill=skill,
-    #                    chapters=chapters)
+    skill = create_skill(final_game["skill"])
+    game = create_game("db/python_basic.json",
+                       name=final_game["name"],
+                       skill=skill)
+
+    chapters_json = final_game["chapters"]
+    chapters_names = [chapter["name"] for chapter in chapters_json]    
+    chapters = create_bulk_chapters(chapters_names)
+    game.chapters = chapters
+    for chapter in game.chapters:
+        chapter_json = final_game["chapters"][chapter.index]
+        chapter_levels_json = chapter_json["levels"]
+        chapter_levels_names = [level["name"] for level in chapter_levels_json]
+        chapter.levels = create_bulk_levels(chapter_levels_names)
+
+    for chapter in game.chapters:
+        for level in chapter.levels:
+            level_json = final_game["chapters"][chapter.index]["levels"][level.index]
+            level_quests_json = level_json["quests"]
+            level_quests_names = [quest["name"] for quest in level_quests_json]
+            level.quests = create_bulk_quest(level_quests_names)
+
+
+    assert game.as_dict() == final_game
+
+    for chapter in game.chapters:
+        assert chapter.index == final_game["chapters"][chapter.index]["index"]
+        assert chapter.name == final_game["chapters"][chapter.index]["name"]
+        assert chapter.is_complete == final_game["chapters"][chapter.index]["is_complete"]
+
+        for level in chapter.levels:
+            assert level.index == final_game["chapters"][chapter.index]["levels"][level.index]["index"]
+            assert level.name == final_game["chapters"][chapter.index]["levels"][level.index]["name"]
+            assert level.is_complete == final_game["chapters"][chapter.index]["levels"][level.index]["is_complete"]
+
+            for quest in level.quests:
+                assert quest.index == final_game["chapters"][chapter.index]["levels"][level.index]["quests"][quest.index]["index"]
+                assert quest.name == final_game["chapters"][chapter.index]["levels"][level.index]["quests"][quest.index]["name"]
+                assert quest.is_complete == final_game["chapters"][chapter.index]["levels"][level.index]["quests"][quest.index]["is_complete"]

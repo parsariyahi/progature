@@ -51,7 +51,7 @@ class Level:
             "index": self.index,
             "name": self.name,
             "is_complete": self.is_complete,
-            "quests": [quest.as_dict() for quest in self.quests],
+            "quests": [quest.as_dict() for quest in self.quests] if self.quests else [],
         }
 
     @property

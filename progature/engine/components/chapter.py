@@ -51,7 +51,7 @@ class Chapter:
             "index": self.index,
             "name": self.name,
             "is_complete": self.is_complete,
-            "levels": [level.as_dict() for level in self.levels],
+            "levels": [level.as_dict() for level in self.levels] if self.levels else [],
         }
 
     @property

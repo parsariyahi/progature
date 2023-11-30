@@ -16,48 +16,65 @@ from tests.utils.component import (
 
 
 def test_create_bulk_quests():
-    quest_names = [
-        "my first hello world",
-        "print function",
+    quests = [
+        {
+            "index": 0,
+            "name": "my first hello world",
+            "is_complete": False,
+        },
+        {
+            "index": 1,
+            "name": "print function",
+            "is_complete": False,
+        },
     ]
 
-    quest_pot = create_bulk_quest(quest_names)
+    quest_pot = create_bulk_quest(quests)
 
-    for quest_index, quest in enumerate(quest_pot):
-        assert quest.name == quest_names[quest_index]
+    for quest in quest_pot:
+        assert quest.name == quests[quest.index]["name"]
 
 def test_create_bulk_levels():
-    level_names = [
-        "how to work with strings",
-        "if statements"
+    levels = [
+        {
+            "index": 0,
+            "name": "how to work with strings",
+            "is_complete": False,
+        },
+        {
+            "index": 1,
+            "name": "if statements",
+            "is_complete": False,
+        },
     ]
 
-    quests = [
-        Pot(QuestUtil.create_quest_bulk(10)),
-        Pot(QuestUtil.create_quest_bulk(5)),
-    ]
+    level_pot = create_bulk_levels(levels)
 
-
-    level_pot = create_bulk_levels(level_names, quests)
-
-    for level_index, level in enumerate(level_pot):
-        assert level.quests == quests[level_index]
+    for level in level_pot:
+        assert level.index == levels[level.index]["index"]
+        assert level.name == levels[level.index]["name"]
+        assert level.is_complete == levels[level.index]["is_complete"]
 
 def test_create_bulk_chapters():
-    chapter_names = [
-        "functional programming",
-        "OOP",
+    chapters = [
+        {
+            "index": 0,
+            "name": "functional programming",
+            "is_complete": False,
+        },
+        {
+            "index": 1,
+            "name": "OOP",
+            "is_complete": False,
+        },
     ]
 
-    levels = [
-        Pot(LevelUtil.create_level_bulk(5)),
-        Pot(LevelUtil.create_level_bulk(10)),
-    ]
+    chapter_pot = create_bulk_chapters(chapters)
 
-    chapter_pot = create_bulk_chapters(chapter_names, levels)
-
-    for chapter_index, chapter in enumerate(chapter_pot):
-        assert chapter.levels == levels[chapter_index]
+    for chapter in chapter_pot:
+        assert chapter.index == chapters[chapter.index]["index"]
+        assert chapter.name == chapters[chapter.index]["name"]
+        assert chapter.is_complete == chapters[chapter.index]["is_complete"]
 
 def test_create_skill():
     skill_name = "python programming"
@@ -178,21 +195,19 @@ def test_create_full_game_with_component_utils():
                        skill=skill)
 
     chapters_json = final_game["chapters"]
-    chapters_names = [chapter["name"] for chapter in chapters_json]    
-    chapters = create_bulk_chapters(chapters_names)
+    # chapters_names = [chapter["name"] for chapter in chapters_json]    
+    chapters = create_bulk_chapters(chapters_json)
     game.chapters = chapters
     for chapter in game.chapters:
         chapter_json = final_game["chapters"][chapter.index]
         chapter_levels_json = chapter_json["levels"]
-        chapter_levels_names = [level["name"] for level in chapter_levels_json]
-        chapter.levels = create_bulk_levels(chapter_levels_names)
+        chapter.levels = create_bulk_levels(chapter_levels_json)
 
     for chapter in game.chapters:
         for level in chapter.levels:
             level_json = final_game["chapters"][chapter.index]["levels"][level.index]
             level_quests_json = level_json["quests"]
-            level_quests_names = [quest["name"] for quest in level_quests_json]
-            level.quests = create_bulk_quest(level_quests_names)
+            level.quests = create_bulk_quest(level_quests_json)
 
 
     assert game.as_dict() == final_game

@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict, List, Any
 
 from progature.engine.components import (
     Game, Skill, Chapter,
@@ -6,34 +6,47 @@ from progature.engine.components import (
 from progature.engine.structures import Pot
 
 
-def create_bulk_quest(quest_names: List[str]) -> Pot[Quest]:
+def create_bulk_quest(quests: List[Dict[Any, Any]]) -> Pot[Quest]:
     quest_list = []
-    for quest_index, quest_name in enumerate(quest_names):
+    for quest in quests:
+        index = quest.get("index", None)
+        name = quest.get("name", None)
+        is_complete = quest.get("is_complete", None)
         quest_list.append(
-            Quest(index=quest_index, name=quest_name, is_complete=False)
+            Quest(index=index,
+                  name=name,
+                  is_complete=is_complete)
         )
     
     return Pot(quest_list)
 
 
-def create_bulk_levels(level_names: List[str], level_quests: List[Pot[Quest]] | None = None) -> Pot[Level]:
+def create_bulk_levels(levels: List[Dict[Any, Any]]) -> Pot[Level]:
     level_list = []
-    for level_index, level_name in enumerate(level_names):
-        level = Level(index=level_index, name=level_name)
-        if level_quests:
-            level.quests = level_quests[level_index]
-        level_list.append(level)
+    for level in levels:
+        index = level.get("index", None)
+        name = level.get("name", None)
+        is_complete = level.get("is_complete", None)
+        level_list.append(
+            Level(index=index, 
+                  name=name,
+                  is_complete=is_complete)
+        )
 
     return Pot(level_list)
 
 
-def create_bulk_chapters(chapter_names: List[str], chapter_levels: List[Pot[Level]] | None = None) -> Pot[Chapter]:
+def create_bulk_chapters(chapters: List[Dict[Any, Any]]) -> Pot[Chapter]:
     chapter_list = []
-    for chapter_index, chapter_name in enumerate(chapter_names):
-        chapter = Chapter(index=chapter_index, name=chapter_name)
-        if chapter_levels:
-            chapter.levels = chapter_levels[chapter_index]
-        chapter_list.append(chapter)
+    for chapter in chapters:
+        index = chapter.get("index", None)
+        name = chapter.get("name", None)
+        is_complete = chapter.get("is_complete", None)
+        chapter_list.append(
+            Chapter(index=index,
+                    name=name,
+                    is_complete=is_complete)
+        )
 
     return Pot(chapter_list)
 

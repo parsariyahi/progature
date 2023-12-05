@@ -1,6 +1,7 @@
 from progature.utils.init import (
     create_basic_python_game,
     create_advanced_python_game,
+    create_data_structure_intro_game,
 )
 
 
@@ -279,46 +280,46 @@ def test_basic_python_game():
 
 def teat_create_advanced_python_game():
     game_json = {
-        # "file_path": "python_advanced.json",
-        "name": "python advanced",
-        "skill": "python advanced",
+        # "file_path": "data_structure_intro.json",
+        "name": "data structure intoduction",
+        "skill": "data structure",
         "is_complete": False,
         "chapters": [
             {
                 "index": 0,
-                "name": "advanced function",
+                "name": "introduction to data structure",
                 "is_complete": False,
                 "levels": [
                     {
                         "index": 0,
-                        "name": "map function",
+                        "name": "arrays",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "how to use map function",
+                                "name": "what are arrays",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "use map function in your program",
+                                "name": "how arrays work",
                                 "is_complete": False,
                             },
                         ]
                     },
                     {
                         "index": 1,
-                        "name": "zip function",
+                        "name": "strings",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "what is zip function",
+                                "name": "how to use strings",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "write simple program with zip function",
+                                "name": "strings in low level computing",
                                 "is_complete": False,
                             },
                         ]
@@ -327,39 +328,56 @@ def teat_create_advanced_python_game():
             },
             {
                 "index": 1,
-                "name": "itertools",
+                "name": "linear data structures",
                 "is_complete": False,
                 "levels": [
                     {
                         "index": 0,
-                        "name": "itertools lib",
+                        "name": "linked lists",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "use itertools",
+                                "name": "linked lists VS. arrays",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "what is __iter__ in classes",
+                                "name": "how poiners works in linked lists",
                                 "is_complete": False,
                             },
                         ]
                     },
                     {
                         "index": 1,
-                        "name": "itertools functions",
+                        "name": "queues",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "count function",
+                                "name": "queue example in real life",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "cycle function",
+                                "name": "do a simple project with queues",
+                                "is_complete": False,
+                            },
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "name": "stacks",
+                        "is_complete": False,
+                        "quests": [
+                            {
+                                "index": 0,
+                                "name": "stacks VS. queues",
+                                "is_complete": False,
+                            },
+                            {
+                                "index": 1,
+                                "name": "use stacks in your project",
                                 "is_complete": False,
                             },
                         ]
@@ -368,80 +386,39 @@ def teat_create_advanced_python_game():
             },
             {
                 "index": 2,
-                "name": "lambda functions and decorators",
+                "name": "non-linear data structures",
                 "is_complete": False,
                 "levels": [
                     {
                         "index": 0,
-                        "name": "lambda functions",
+                        "name": "trees",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "anonymous functions",
+                                "name": "dfs and bfs",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "lambda functions VS. regular functions",
+                                "name": "use trees",
                                 "is_complete": False,
                             },
                         ]
                     },
                     {
                         "index": 1,
-                        "name": "decorators",
+                        "name": "graphs",
                         "is_complete": False,
                         "quests": [
                             {
                                 "index": 0,
-                                "name": "what is wrapper in functions",
+                                "name": "graph VS. trees",
                                 "is_complete": False,
                             },
                             {
                                 "index": 1,
-                                "name": "how to call functions in other functions",
-                                "is_complete": False,
-                            },
-                        ]
-                    },
-                ]
-            },
-            {
-                "index": 3,
-                "name": "threading",
-                "is_complete": False,
-                "levels": [
-                    {
-                        "index": 0,
-                        "name": "threads",
-                        "is_complete": False,
-                        "quests": [
-                            {
-                                "index": 0,
-                                "name": "what is main thread",
-                                "is_complete": False,
-                            },
-                            {
-                                "index": 1,
-                                "name": "different types of threads",
-                                "is_complete": False,
-                            },
-                        ]
-                    },
-                    {
-                        "index": 1,
-                        "name": "threads VS. processes",
-                        "is_complete": False,
-                        "quests": [
-                            {
-                                "index": 0,
-                                "name": "multi processing VS. threading",
-                                "is_complete": False,
-                            },
-                            {
-                                "index": 1,
-                                "name": "is threading really simultaneously",
+                                "name": "create social medai with graphs",
                                 "is_complete": False,
                             },
                         ]
@@ -451,6 +428,7 @@ def teat_create_advanced_python_game():
         ]
     }
 
-    game = create_advanced_python_game()
+
+    game = create_data_structure_intro_game()
 
     assert game.as_dict() == game_json

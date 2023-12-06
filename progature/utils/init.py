@@ -1,6 +1,9 @@
 """
 Initiate point of the app is here.
 """
+from pathlib import Path
+import json
+
 from progature.utils.component import(
     create_game, create_skill,
     create_bulk_chapters,
@@ -635,3 +638,16 @@ def create_data_structure_intro_game():
             level.quests = create_bulk_quest(game_json["chapters"][chapter.index]["levels"][level.index]["quests"])
 
     return game
+
+
+def create_all_games():
+    games = [
+        create_basic_python_game(),
+        create_advanced_python_game(),
+        create_data_structure_intro_game(),
+    ]
+
+    for game in games:
+        path = Path("progature/db/games/") / game.file_path
+        with open(path, "w") as file:
+            json.dump(game.as_dict(), file, indent=4)

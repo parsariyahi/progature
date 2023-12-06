@@ -1,7 +1,11 @@
+import os
+from pathlib import Path
+
 from progature.utils.init import (
     create_basic_python_game,
     create_advanced_python_game,
     create_data_structure_intro_game,
+    create_all_games,
 )
 
 
@@ -432,3 +436,17 @@ def teat_create_advanced_python_game():
     game = create_data_structure_intro_game()
 
     assert game.as_dict() == game_json
+
+
+def test_create_all_games():
+    games = [
+        create_basic_python_game(),
+        create_advanced_python_game(),
+        create_data_structure_intro_game(),
+    ]
+
+    create_all_games()
+
+    for game in games:
+        path = Path("progature/db/games/") / game.file_path
+        assert os.path.isfile(path) == True

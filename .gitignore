@@ -1,5 +1,6 @@
 #Games
-progature/db/*
+progature/db/games/*
+!progature/db/games/.gitkeep
 !progature/db/*.gitkeep
 
 # Byte-compiled / optimized / DLL files

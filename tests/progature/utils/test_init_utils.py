@@ -7,6 +7,7 @@ from progature.utils.init import (
     create_data_structure_intro_game,
     create_all_games,
 )
+from progature.settings.config import GAME_DIR_PATH
 from progature.settings.games import (
     PYTHON_BASIC_GAME_JSON,
     PYTHON_ADVANCED_GAME_JSON,
@@ -42,5 +43,6 @@ def test_create_all_games():
     create_all_games()
 
     for game in games:
-        path = Path("progature/db/games/") / game.file_name
+        path = Path(GAME_DIR_PATH) / game.file_name
         assert os.path.isfile(path) == True
+        os.remove(path)

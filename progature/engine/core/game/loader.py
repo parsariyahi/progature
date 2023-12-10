@@ -6,8 +6,8 @@ from progature.engine.components import Game, Skill, Chapter, Level, Quest
 
 class GameLoader:
     @staticmethod
-    def load(file_path):
-        with open(file_path, "r", encoding="utf8") as file:
+    def load(file_name):
+        with open(file_name, "r", encoding="utf8") as file:
             content = file.read()
             game_json = json.loads(content)
             chapters_json = game_json["chapters"]
@@ -51,7 +51,7 @@ class GameLoader:
 
             skill = Skill(game_json["skill"])
             game = Game(
-                file_path,
+                file_name,
                 game_json["name"],
                 skill,
                 is_complete=game_json["is_complete"],

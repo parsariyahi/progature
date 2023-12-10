@@ -26,7 +26,12 @@ first install requirements
 pip install -r requirements.txt
 ```
 
-then run ``main.py``
+then run ``install.py``
+```bash
+python progature/install.py
+```
+
+after installation run ``main.py``
 ```bash
 python progature/main.py
 ```

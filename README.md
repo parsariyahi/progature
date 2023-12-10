@@ -10,7 +10,7 @@ then run ``install.py``
 ```bash
 python progature/install.py
 ```
-after installation run ``main.py``
+after installation run ``run.py``
 ```bash
 python progature/run.py
 ```

@@ -4,6 +4,7 @@ Initiate point of the app is here.
 from pathlib import Path
 import json
 
+from progature.engine.components import Game
 from progature.utils.component import(
     create_game, create_skill,
     create_bulk_chapters,
@@ -19,7 +20,7 @@ from progature.settings.games import (
     DATA_STRUCTURE_INTRO_GAME_JSON
 )
 
-def create_basic_python_game():
+def create_basic_python_game() -> Game:
     game_json = PYTHON_BASIC_GAME_JSON
     skill = create_skill(game_json["skill"])
     game = create_game(game_json["file_name"],
@@ -34,7 +35,7 @@ def create_basic_python_game():
     return game
 
 
-def create_advanced_python_game():
+def create_advanced_python_game() -> Game:
     game_json = PYTHON_ADVANCED_GAME_JSON
     skill = create_skill(game_json["skill"])
     game = create_game(game_json["file_name"],
@@ -49,7 +50,7 @@ def create_advanced_python_game():
     return game
 
 
-def create_data_structure_intro_game():
+def create_data_structure_intro_game() -> Game:
     game_json = DATA_STRUCTURE_INTRO_GAME_JSON
     skill = create_skill(game_json["skill"])
     game = create_game(game_json["file_name"],
@@ -64,7 +65,7 @@ def create_data_structure_intro_game():
     return game
 
 
-def create_all_games():
+def create_all_games() -> None:
     games = [
         create_basic_python_game(),
         create_advanced_python_game(),

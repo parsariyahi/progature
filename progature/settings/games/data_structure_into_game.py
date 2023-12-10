@@ -1,5 +1,5 @@
 DATA_STRUCTURE_INTRO_GAME_JSON = {
-    "file_path": "data_structure_intro.json",
+    "file_name": "data_structure_intro.json",
     "name": "data structure intoduction",
     "skill": "data structure",
     "is_complete": False,

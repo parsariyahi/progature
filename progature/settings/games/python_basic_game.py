@@ -1,5 +1,5 @@
 PYTHON_BASIC_GAME_JSON = {
-    "file_path": "python_basic.json",
+    "file_name": "python_basic.json",
     "name": "python basic",
     "skill": "python basic",
     "is_complete": False,

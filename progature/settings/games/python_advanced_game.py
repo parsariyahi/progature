@@ -1,5 +1,5 @@
 PYTHON_ADVANCED_GAME_JSON = {
-    "file_path": "python_advanced.json",
+    "file_name": "python_advanced.json",
     "name": "python advanced",
     "skill": "python advanced",
     "is_complete": False,

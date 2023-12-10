@@ -11,7 +11,7 @@ from progature.utils.component import(
 
 def create_test_game():
     game_json = {
-        "file_path": "test_game.json",
+        "file_name": "test_game.json",
         "name": "python basic",
         "skill": "python basic",
         "is_complete": False,
@@ -278,7 +278,7 @@ def create_test_game():
         ]
     }
     skill = create_skill(game_json["skill"])
-    game = create_game(game_json["file_path"],
+    game = create_game(game_json["file_name"],
                        game_json["name"],
                        skill,)
     game.chapters = create_bulk_chapters(chapters=game_json["chapters"])
@@ -287,14 +287,14 @@ def create_test_game():
         for level in chapter.levels:
             level.quests = create_bulk_quest(game_json["chapters"][chapter.index]["levels"][level.index]["quests"])
 
-    path = Path("progature/db/games/") / game.file_path
+    path = Path("progature/db/games/") / game.file_name
     with open(path, "w") as file:
         json.dump(game.as_dict(), file, indent=4)
 
 
 def cleanup_test_game():
-    file_path = "test_game.json"
-    file_path = Path("progature/db/games/") / file_path
+    file_name = "test_game.json"
+    file_name = Path("progature/db/games/") / file_name
 
-    if os.path.isfile(file_path):
-        os.remove(file_path)
+    if os.path.isfile(file_name):
+        os.remove(file_name)

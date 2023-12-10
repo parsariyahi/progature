@@ -42,5 +42,5 @@ def test_create_all_games():
     create_all_games()
 
     for game in games:
-        path = Path("progature/db/games/") / game.file_path
+        path = Path("progature/db/games/") / game.file_name
         assert os.path.isfile(path) == True

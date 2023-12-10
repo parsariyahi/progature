@@ -85,21 +85,22 @@ def test_create_skill():
 
 def test_create_game():
     game_name = "python basic game"
-    game_file_path = "db/python_basic_game.json"
+    game_file_name = "python_basic_game.json"
     game_skill = SkillUtil.create_skill()
 
     chapters = ChapterUtil.create_chapter_bulk(10)
 
-    game = create_game(game_file_path, game_name, game_skill, chapters)
+    game = create_game(game_file_name, game_name, game_skill, chapters)
 
 
     assert game.name == game_name
-    assert game.file_path == game_file_path
+    assert game.file_name == game_file_name
     assert game.skill == game_skill
     assert game.chapters == chapters
 
 def test_create_full_game_with_component_utils():
     final_game = {
+        "file_name": "python_basic.json",
         "name": "basic python",
         "skill": "python programming language",
         "is_complete": False,
@@ -190,7 +191,7 @@ def test_create_full_game_with_component_utils():
     }
     
     skill = create_skill(final_game["skill"])
-    game = create_game("db/python_basic.json",
+    game = create_game("python_basic.json",
                        name=final_game["name"],
                        skill=skill)
 

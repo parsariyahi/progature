@@ -12,7 +12,7 @@ python progature/install.py
 ```
 after installation run ``main.py``
 ```bash
-python progature/main.py
+python progature/run.py
 ```
 
 ## Main Page

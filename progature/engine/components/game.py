@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Union, List
+from typing import Optional, Union, Dict
 
 from progature.engine.structures import Pot
 from progature.engine.components.skill import Skill

@@ -1,0 +1,1 @@
+GAME_DIR_PATH = "progature/db/games/"

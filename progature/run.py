@@ -23,7 +23,7 @@ if __name__ == "__main__":
             if values["_GAMES_"]:
                 game = values["_GAMES_"][0]
                 if game:
-                    manager = GameManager(game.file_path)
+                    manager = GameManager(game.file_name)
                     game_window(manager)
             else:
                 pg.popup_error("Please select a chapter")

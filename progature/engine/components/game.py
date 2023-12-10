@@ -9,7 +9,7 @@ from progature.engine.components.chapter import Chapter
 class Game:
     def __init__(
         self,
-        file_path: str,
+        file_name: str,
         name: str,
         skill: Optional[Skill | None] = None,
         chapters: Optional[Pot[Chapter] | None] = None,
@@ -21,7 +21,7 @@ class Game:
 
         Parameters
         ----------
-        file_path: string
+        file_name: string
             The path of "".json"" file of the game.
 
         name : string
@@ -36,7 +36,7 @@ class Game:
         is_complete : bool, optional
             Status of game completion
         """
-        self.file_path = file_path
+        self.file_name = file_name
         self.name = name
         self.skill = skill
         self.chapters = chapters
@@ -54,6 +54,7 @@ class Game:
 
     def as_dict(self) -> Dict:
         return {
+            "file_name": self.file_name,
             "name": self.name,
             "skill": self.skill.name if self.skill else "",
             "is_complete": self.is_complete,

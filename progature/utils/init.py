@@ -22,7 +22,7 @@ from progature.settings.games import (
 def create_basic_python_game():
     game_json = PYTHON_BASIC_GAME_JSON
     skill = create_skill(game_json["skill"])
-    game = create_game(game_json["file_path"],
+    game = create_game(game_json["file_name"],
                        game_json["name"],
                        skill,)
     game.chapters = create_bulk_chapters(chapters=game_json["chapters"])
@@ -37,7 +37,7 @@ def create_basic_python_game():
 def create_advanced_python_game():
     game_json = PYTHON_ADVANCED_GAME_JSON
     skill = create_skill(game_json["skill"])
-    game = create_game(game_json["file_path"],
+    game = create_game(game_json["file_name"],
                        game_json["name"],
                        skill,)
     game.chapters = create_bulk_chapters(chapters=game_json["chapters"])
@@ -52,7 +52,7 @@ def create_advanced_python_game():
 def create_data_structure_intro_game():
     game_json = DATA_STRUCTURE_INTRO_GAME_JSON
     skill = create_skill(game_json["skill"])
-    game = create_game(game_json["file_path"],
+    game = create_game(game_json["file_name"],
                        game_json["name"],
                        skill,)
     game.chapters = create_bulk_chapters(chapters=game_json["chapters"])
@@ -72,6 +72,6 @@ def create_all_games():
     ]
 
     for game in games:
-        path = Path(GAME_DIR_PATH) / game.file_path
+        path = Path(GAME_DIR_PATH) / game.file_name
         with open(path, "w") as file:
             json.dump(game.as_dict(), file, indent=4)

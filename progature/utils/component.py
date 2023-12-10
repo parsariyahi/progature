@@ -110,13 +110,13 @@ def create_skill(name: str) -> Skill:
     return Skill(name=name)
 
 
-def create_game(file_path: str, name: str, skill: Skill, chapters: Pot[Chapter] | None = None) -> Game:
+def create_game(file_name: str, name: str, skill: Skill, chapters: Pot[Chapter] | None = None) -> Game:
     """Create Game,
     This function is utility for creating game,
 
     Parameters
     ----------
-    file_path: str
+    file_name: str
         The file path that you want to game be saved in.
 
     name: str
@@ -133,7 +133,7 @@ def create_game(file_path: str, name: str, skill: Skill, chapters: Pot[Chapter] 
     Game
         Game object that is created.
     """
-    game = Game(file_path=file_path,
+    game = Game(file_name=file_name,
                 name=name,
                 skill=skill,
                 chapters=chapters,

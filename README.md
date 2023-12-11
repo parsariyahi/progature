@@ -1,5 +1,5 @@
-# progature
-Programming Adventure Game
+# Progature: Python Programming Adventure Game
+Welcome to the epic world of Progature! 🚀 It's not just a Python programming game; it's your ticket to an **RPG (Role-Playing Game)** adventure in the real life.
 
 ## Run the game
 first install requirements

@@ -1,12 +1,28 @@
 import json
+from pathlib import Path
 
 from progature.engine.structures import Pot
 from progature.engine.components import Game, Skill, Chapter, Level, Quest
+from progature.settings.config import GAME_DIR_PATH
 
 
 class GameLoader:
     @staticmethod
-    def load(file_name):
+    def load(file_name: str) -> Game:
+        """Game loader that loads games inside app,
+        This class is an interface between app and json files to be loaded.
+
+        Parameters
+        ----------
+        file_name: str
+            Path of the game we want to work with.
+
+        Returns
+        -------
+        Game
+            Instance of the game's file Game.
+        """
+        # path = Path(GAME_DIR_PATH) / file_name
         with open(file_name, "r", encoding="utf8") as file:
             content = file.read()
             game_json = json.loads(content)

@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from progature.engine.core.game.manager import GameManager
 from progature.gui import main_window, game_window, chapter_window, level_window, quest_window
+from progature.settings.config import GAME_DIR_PATH
 
 if __name__ == "__main__":
 
@@ -23,7 +24,8 @@ if __name__ == "__main__":
             if values["_GAMES_"]:
                 game = values["_GAMES_"][0]
                 if game:
-                    manager = GameManager(game.file_name)
+                    path = Path(GAME_DIR_PATH) / game.file_name
+                    manager = GameManager(path)
                     game_window(manager)
             else:
                 pg.popup_error("Please select a chapter")

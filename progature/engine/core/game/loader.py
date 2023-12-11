@@ -8,13 +8,13 @@ from progature.settings.config import GAME_DIR_PATH
 
 class GameLoader:
     @staticmethod
-    def load(file_name: str) -> Game:
+    def load(game_path: str) -> Game:
         """Game loader that loads games inside app,
         This class is an interface between app and json files to be loaded.
 
         Parameters
         ----------
-        file_name: str
+        game_path: str
             Path of the game we want to work with.
 
         Returns
@@ -22,8 +22,7 @@ class GameLoader:
         Game
             Instance of the game's file Game.
         """
-        # path = Path(GAME_DIR_PATH) / file_name
-        with open(file_name, "r", encoding="utf8") as file:
+        with open(game_path, "r", encoding="utf8") as file:
             content = file.read()
             game_json = json.loads(content)
             chapters_json = game_json["chapters"]
@@ -67,7 +66,7 @@ class GameLoader:
 
             skill = Skill(game_json["skill"])
             game = Game(
-                file_name,
+                game_json["file_name"],
                 game_json["name"],
                 skill,
                 is_complete=game_json["is_complete"],

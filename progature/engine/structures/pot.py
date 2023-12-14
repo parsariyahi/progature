@@ -34,3 +34,6 @@ class Pot(Generic[T]):
         self._index += 1
 
         return item
+
+    def __len__(self) -> int:
+        return len(self.items)

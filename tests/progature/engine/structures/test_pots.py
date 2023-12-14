@@ -35,3 +35,9 @@ def test_pot_with_quest():
     quests = QuestUtil.create_quest_bulk()
 
     pot = Pot(quests)
+
+def test_pot_len_method() :
+    list_ = [1, 2, 3, 4]
+    pot = Pot(list_)
+
+    assert len(pot) == len(list_)

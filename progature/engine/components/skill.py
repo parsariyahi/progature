@@ -1,6 +1,11 @@
 from typing import Dict
 
 
+__all__ = [
+    "Skill",
+]
+
+
 class Skill:
     def __init__(self, name) -> None:
         """Skill component contains quest data of each skill in game,

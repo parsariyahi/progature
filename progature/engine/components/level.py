@@ -5,6 +5,11 @@ from progature.engine.structures import Pot
 from progature.engine.components.quest import Quest
 
 
+__all__ = [
+    "Level",
+]
+
+
 class Level:
     def __init__(
         self,
@@ -21,13 +26,10 @@ class Level:
         ----------
         index: int
             The index of each level inside level list in "".json"" file
-
         name : string
             The name of level.
-
         quests : Pot[Quest] or None, optional
             qeusts of each level.
-
         is_complete : bool, optional
             Status of level completion
         """

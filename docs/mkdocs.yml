@@ -1,7 +1,24 @@
 site_name: Progature
 site_url: https://progature.readthedocs.io/
 
+theme:
+  name: "material"
+  
+plugins:
+  mkdocstrings:
+    handlers:
+      python:
+        paths: [..]
+        options:
+          docstring_style: numpy
+          show_source: false
+          allow_inspection: true
+          group_by_category: true
+          heading_level: 3
+
 nav:
   - Home: 'index.md'
   
   - License: 'license.md'
+
+  - Documentation: 'documents.md'

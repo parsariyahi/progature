@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from progature.utils.init import (
+from progature.utils import (
     create_basic_python_game,
     create_advanced_python_game,
     create_data_structure_intro_game,

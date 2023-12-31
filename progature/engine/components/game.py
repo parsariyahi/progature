@@ -6,6 +6,11 @@ from progature.engine.components.skill import Skill
 from progature.engine.components.chapter import Chapter
 
 
+__all__ = [
+    "Game",
+]
+
+
 class Game:
     def __init__(
         self,
@@ -23,16 +28,12 @@ class Game:
         ----------
         file_name: string
             The path of "".json"" file of the game.
-
         name : string
             The name of game.
-
         skill : Skill or None, optional
             Skill of each game.
-
         chapters : Pot[Chapter] or None, optional
             Chapters of each game.
-
         is_complete : bool, optional
             Status of game completion
         """

@@ -5,6 +5,11 @@ from progature.engine.structures import Pot
 from progature.engine.components.level import Level
 
 
+__all__ = [
+    "Chapter",
+]
+
+
 class Chapter:
     def __init__(
         self,
@@ -21,13 +26,10 @@ class Chapter:
         ----------
         index: int
             The index of each chapter inside chapter list in "".json"" file
-
         name : string
             The name of chapter.
-
         levels : Pot[Level] or None, optional
             levels of each chapter.
-
         is_complete : bool, optional
             Status of chapter completion
         """

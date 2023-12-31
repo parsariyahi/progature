@@ -1,6 +1,11 @@
 from typing import Dict
 
 
+__all__ = [
+    "Quest",
+]
+
+
 class Quest:
     def __init__(self, index: int, name: str, is_complete=False):
         """Quest component contains quest data of each quest in game,
@@ -11,10 +16,8 @@ class Quest:
         ----------
         index: int
             The index of each quest inside quest list in "".json"" file
-
         name : string
             The name of quest.
-
         is_complete : bool, optional
             Status of quest completion
         """

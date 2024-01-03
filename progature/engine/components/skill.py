@@ -29,6 +29,23 @@ class Skill:
         raise TypeError("Type Error Skill")
 
     def as_dict(self) -> Dict:
+        """Returns the `dict` representation of `Skill` object.
+
+        Returns
+        -------
+        dict
+            The representation of the `Skill`.
+
+        Examples
+        --------
+        ```python
+        >>> s = Skill("NAME")
+        >>> s.as_dict()
+        {
+            "name": NAME,
+        }
+        ```
+        """
         return {
             "name": self.name,
         }

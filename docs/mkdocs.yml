@@ -21,4 +21,7 @@ nav:
   
   - License: 'license.md'
 
-  - Documentation: 'documents.md'
+  - Documentation: 
+    - components/index.md
+    - core/index.md
+    - structures/index.md

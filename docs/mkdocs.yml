@@ -15,6 +15,13 @@ plugins:
           allow_inspection: true
           group_by_category: true
           heading_level: 3
+          show_root_heading: true
+          show_if_no_docstring: true
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          filters: ["!^_"]
+          merge_init_into_class: true
 
 nav:
   - Home: 'index.md'
@@ -22,6 +29,12 @@ nav:
   - License: 'license.md'
 
   - Documentation: 
-    - components/index.md
+    - components :
+      - components/index.md
+      - components/game.md
+      - components/skill.md
+      - components/chapter.md
+      - components/level.md
+      - components/quest.md
     - core/index.md
     - structures/index.md

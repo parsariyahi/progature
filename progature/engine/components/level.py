@@ -49,6 +49,26 @@ class Level:
         raise TypeError("Type Error Level")
 
     def as_dict(self) -> Dict:
+        """Returns the `dict` representation of `Level` object.
+
+        Returns
+        -------
+        dict
+            The representation of the `Level`.
+
+        Examples
+        --------
+        ```python
+        >>> l = Level("INDEX", "NAME", "IS_COMPLETE", "QUESTS")
+        >>> l.as_dict()
+        {
+            "index": INDEX,
+            "name": NAME,
+            "is_complete": IS_COMPLETE,
+            "quests": QUESTS,
+        }
+        ```
+        """
         return {
             "index": self.index,
             "name": self.name,

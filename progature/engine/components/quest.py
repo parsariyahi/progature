@@ -36,6 +36,25 @@ class Quest:
         raise TypeError("Type Error Quest")
 
     def as_dict(self) -> Dict:
+        """Returns the `dict` representation of `Quest` object.
+
+        Returns
+        -------
+        dict
+            The representation of the `QUEST`.
+
+        Examples
+        --------
+        ```python
+        >>> q = Quest("INDEX", "NAME", "IS_COMPLETE")
+        >>> q.as_dict()
+        {
+            "index": INDEX,
+            "name": NAME,
+            "is_complete": IS_COMPLETE,
+        }
+        ```
+        """
         return {
             "index": self.index,
             "name": self.name,

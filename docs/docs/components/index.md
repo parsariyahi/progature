@@ -1,4 +1,4 @@
-# components
+# Components
 
 ::: progature.engine.components
     options:

@@ -49,6 +49,26 @@ class Chapter:
         raise TypeError("Type Error Chapter")
 
     def as_dict(self) -> Dict:
+        """Returns the `dict` representation of `Chapter` object.
+
+        Returns
+        -------
+        dict
+            The representation of the `Chapter`.
+
+        Examples
+        --------
+        ```python
+        >>> c = Chapter("INDEX", "NAME", "IS_COMPLETE", "LEVELS")
+        >>> c.as_dict()
+        {
+            "index": INDEX,
+            "name": NAME,
+            "is_complete": IS_COMPLETE,
+            "levels": LEVELS,
+        }
+        ```
+        """
         return {
             "index": self.index,
             "name": self.name,

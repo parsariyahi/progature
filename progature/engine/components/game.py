@@ -37,11 +37,11 @@ class Game:
         is_complete : bool, optional
             Status of game completion
         """
-        self.file_name = file_name
-        self.name = name
-        self.skill = skill
-        self.chapters = chapters
-        self.is_complete = is_complete
+        self.file_name: str = file_name
+        self.name: str = name
+        self.skill: Skill = skill
+        self.chapters: Pot[Chapter] = chapters
+        self.is_complete: bool = is_complete
 
     def __str__(self) -> str:
         string = f"{self.name}:{self.is_complete}"
@@ -54,6 +54,27 @@ class Game:
         raise TypeError("Type Error Game")
 
     def as_dict(self) -> Dict:
+        """Returns the `dict` representation of `Game` object.
+
+        Returns
+        -------
+        dict
+            The representation of the `Game`.
+
+        Examples
+        --------
+        ```python
+        >>> g = Game("FILE_NAME", "NAME", "SKILL", "IS_COMPLETE", "CHAPTERS")
+        >>> g.as_dict()
+        {
+            "file_name": FILE_NAME,
+            "name": NAME,
+            "skill": SKILL,
+            "is_complete": IS_COMPLETE,
+            "chapters": CHAPTERS,
+        }
+        ```
+        """
         return {
             "file_name": self.file_name,
             "name": self.name,
@@ -64,6 +85,13 @@ class Game:
 
     @property
     def skill(self) -> Union[Skill, None]:
+        """Skill property
+
+        Returns
+        -------
+        Skill or None
+            Returns the `Skill` object of the `Game` or `None`.
+        """
         return self._skill
 
     @skill.setter
@@ -72,6 +100,13 @@ class Game:
 
     @property
     def chapters(self) -> Union[Pot[Chapter], None]:
+        """`chapters` property
+
+        Returns
+        -------
+        Pot[Chapter] or None
+            Returns the `Pot` object that contains `Chapter`'s of the `Game` or `None`.
+        """
         return self._chapters
 
     @chapters.setter

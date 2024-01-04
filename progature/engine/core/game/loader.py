@@ -7,15 +7,18 @@ from progature.settings.config import GAME_DIR_PATH
 
 
 class GameLoader:
+    """This class is used to load `JSON` files and returns `Game` objects.
+    `GameLoader` will handler the `Load` part of the apps and works as an `API` between `Python` and `JSON`.
+    """
     @staticmethod
     def load(game_path: str) -> Game:
-        """Game loader that loads games inside app,
-        This class is an interface between app and json files to be loaded.
+        """`load` method loads the `JSON` file,
+        Then returns a `Game` object of that `JSON` file.
 
         Parameters
         ----------
         game_path: str
-            Path of the game we want to work with.
+            Path of the game we want to load.
 
         Returns
         -------

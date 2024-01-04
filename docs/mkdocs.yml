@@ -36,5 +36,9 @@ nav:
       - components/chapter.md
       - components/level.md
       - components/quest.md
-    - core/index.md
+    - core:
+      - core/index.md
+      - core/handler.md
+      - core/manager.md
+      - core/loader.md
     - structures/index.md

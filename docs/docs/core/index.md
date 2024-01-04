@@ -1,1 +1,3 @@
-# core
+# Core
+
+::: progature.engine.core

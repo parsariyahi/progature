@@ -6,9 +6,26 @@ from progature.engine.components import Game
 
 
 class GameHandler:
+    """This class is used to comunicate with `JSON` files,
+    We use `GameHandler` in other part of our apps to change our `JSON` db.
+    This class is an `API` between `Python` and `JSON`.
+
+    Attributes
+    ----------
+    game_path: str
+        Path of the `Game`'s `JSON` file.
+    game_json: dict
+        `dict` representation of the `Game`'s `JSON` file.
+
+    Examples
+    --------
+    >>> g_h = GameHandler("GAME_PATH")
+    >>> with g_h as handler:
+    >>>     handler.game_complete()
+    """
     def __init__(self, game_path: str):
-        """Game handler that handles games files,
-        This class is an interface between python and json.
+        """Game handler that handles game's files,
+        This class is an interface between `Python` and `JSON`.
 
         Parameters
         ----------
@@ -26,10 +43,13 @@ class GameHandler:
         self._write()
 
     def game_complete(self):
+        """Write `True` on `is_complete` for `Game` object. 
+        This method makes the `Game` and its `JSON` file completed.
+        """
         self._write_on_game("is_complete", True)
 
     def chapter_complete(self, chapter_index: int) -> None:
-        """Write ``True`` on ``is_complete`` for chapter. 
+        """Write `True` on `is_complete` for `Chapter` object. 
 
         Parameters
         ----------
@@ -39,7 +59,7 @@ class GameHandler:
         self._write_on_chapter("is_complete", True, chapter_index)
 
     def level_complete(self, chapter_index: int, level_index: int) -> None:
-        """Write ``True`` on ``is_complete`` for level. 
+        """Write `True` on `is_complete` for `Level` object. 
 
         Parameters
         ----------
@@ -50,8 +70,8 @@ class GameHandler:
         """
         self._write_on_level("is_complete", True, chapter_index, level_index)
 
-    def quest_complete(self, chapter_index, level_index, quest_index):
-        """Write ``True`` on ``is_complete`` for quest. 
+    def quest_complete(self, chapter_index: int, level_index: int, quest_index: int):
+        """Write `True` on `is_complete` key for `Quest`. 
 
         Parameters
         ----------

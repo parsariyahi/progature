@@ -7,6 +7,17 @@ from progature.engine.structures import Pot
 
 
 class GameManager:
+    """`GameManager` is the main interface between `GUI` and `Python` objects.
+    This class works as an `API` for `GUI`.
+    `GameManger` uses `GameHandler` and `GameLoader` to work with `JSON` files.
+
+    Attributes
+    ----------
+    game: Game
+        `Game` object that we want to manage.
+    _handler: GameHandler
+        `GameHandler` object that will handler the `JSON` part of the `Game`.
+    """
     def __init__(self, game_path: str) -> None:
         """Game manager that manage games inside app,
         This class is an interface between user and games.
@@ -21,22 +32,22 @@ class GameManager:
         self.current_chapter_index = 0
 
     def game_name(self) -> str:
-        """Get the name of the game.
+        """Returns the `name` property of `Game` object.
 
         Returns
         ------- 
         str
-            The name of the game
+            `name` of the game
         """
         return self.game.name
 
     def game_skill(self) -> Union[Skill, None]:
-        """Get the skill of the game.
+        """Returns the `skill` property of `Game` object.
 
         Returns
         ------- 
         Skill or None
-            The skill of the game
+            `skill` of the game
         """
         return self.game.skill
 
@@ -49,8 +60,8 @@ class GameManager:
             self.game.is_complete = True
 
     def chapter_complete(self, chapter_index: int) -> None:
-        """Write ``True`` on ``is_complete`` for chapter,
-        This method will run handler.chapter_complete().
+        """Write `True` on `is_complete` for `Chapter`,
+        This method will run `handler.chapter_complete()`.
 
         Parameters
         ----------
@@ -62,8 +73,8 @@ class GameManager:
             self.game.chapters[chapter_index].is_complete = True
 
     def level_complete(self, chapter_index: int, level_index: int) -> None:
-        """Write ``True`` on ``is_complete`` for level,
-        This method will run handler.level_complete().
+        """Write `True` on `is_complete` for `Level`,
+        This method will run `handler.level_complete()`.
 
         Parameters
         ----------
@@ -77,8 +88,8 @@ class GameManager:
             self.game.chapters[chapter_index].levels[level_index].is_complete = True
 
     def quest_complete(self, chapter_index: int, level_index: int, quest_index: int) -> None:
-        """Write ``True`` on ``is_complete`` for quest,
-        This method will run handler.quest_complete().
+        """Write `True` on `is_complete` for `Quest`,
+        This method will run `handler.quest_complete()`.
 
         Parameters
         ----------
@@ -96,12 +107,12 @@ class GameManager:
             ].is_complete = True
 
     def chapters(self) -> Union[Pot[Chapter], None]:
-        """Returns the cahtpers of the game.
+        """Returns the `chapters` property of `Game` object.
 
         Returns
         -------
-        Pot of Chapter or None
-            The chapters of the game.
+        Pot[Chapter] or None
+            `chapters` of the game.
         """
         return self.game.chapters
 

@@ -41,4 +41,6 @@ nav:
       - core/handler.md
       - core/manager.md
       - core/loader.md
-    - structures/index.md
+    - structures:
+      - structures/index.md
+      - structures/pot.md

@@ -12,7 +12,7 @@ T = TypeVar("T", Game, Skill, Chapter, Level, Quest)
 
 class Pot(Generic[T]):
     """`Pot` is a `Generic` data structure that contains:
-    `Game`, `Skill`, Chapter`, `Level`, `Quest` objects.
+    `Game`, `Skill`, `Chapter`, `Level`, `Quest` objects.
     This structure is like `list` but is more customize.
 
     Attributes

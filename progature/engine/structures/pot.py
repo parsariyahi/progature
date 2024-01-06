@@ -11,6 +11,15 @@ T = TypeVar("T", Game, Skill, Chapter, Level, Quest)
 
 
 class Pot(Generic[T]):
+    """`Pot` is a `Generic` data structure that contains:
+    `Game`, `Skill`, Chapter`, `Level`, `Quest` objects.
+    This structure is like `list` but is more customize.
+
+    Attributes
+    ----------
+    items: list
+        `list` of objects that `Pot` contains.
+    """
     def __init__(self, items: Iterable[T]):
         self.items = items
 

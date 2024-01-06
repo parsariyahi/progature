@@ -38,9 +38,9 @@ plugins:
           merge_init_into_class: true
 
 nav:
-  - Home: 'index.md'
+  - Home: index.md
   
-  - License: 'license.md'
+  - License: license.md
 
   - Documentation: 
     - components :
